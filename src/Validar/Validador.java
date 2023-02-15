@@ -22,4 +22,8 @@ public class Validador {
         
     return numero.matches("^[09]{2}+[0-9]{8}$");
     }
+     public static boolean esFechaCorrecta(String fecha){
+       
+       return fecha.matches("^([0-2][0-9]||3[0-1])-(0[0-9]||1[0-2])-([0-9][0-9])?[0-9][0-9]$");
+   }
 }
