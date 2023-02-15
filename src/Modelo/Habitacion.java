@@ -10,7 +10,7 @@ package Modelo;
  */
 public class Habitacion {
     private int piso;
-    private int numeroDeContacto;
+    private int numeroDeHabitacion;
     private String tipoDeHabitacion;
     private double precio;
     private String descripcion;
@@ -18,6 +18,15 @@ public class Habitacion {
      private boolean estaDisponible;
      
      //get and set
+
+    public Habitacion(int piso, int numeroDeHabitacion, String tipoDeHabitacion, double precio,
+            String descripcion) {
+        this.piso = piso;
+        this.numeroDeHabitacion = numeroDeHabitacion;
+        this.tipoDeHabitacion = tipoDeHabitacion;
+        this.precio = precio;
+        this.descripcion = descripcion;
+    }
 
     public int getPiso() {
         return piso;
@@ -28,11 +37,11 @@ public class Habitacion {
     }
 
     public int getNumeroDeContacto() {
-        return numeroDeContacto;
+        return numeroDeHabitacion;
     }
 
     public void setNumeroDeContacto(int numeroDeContacto) {
-        this.numeroDeContacto = numeroDeContacto;
+        this.numeroDeHabitacion = numeroDeContacto;
     }
 
     public String getTipoDeHabitacion() {

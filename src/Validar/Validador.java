@@ -9,5 +9,17 @@ package Validar;
  * @author usuario
  */
 public class Validador {
-    
+    public static boolean esNombreValido(String nombre){
+     
+        return nombre.matches("^([A-ZÑ]{1}+[a-zñáéíóúÁÉÍÓÚ'°]+[ ]?){1,2}$");
+   
+  
+}
+   public static boolean esApellidoValido(String apellido){
+        return apellido.matches("^([A-ZÑ]{1}+[a-zñáéíóúÁÉÍÓÚ'°]+[ ]?){1,2}$");
+    }
+    public static boolean esNumeroValido(String numero){
+        
+    return numero.matches("^[09]{2}+[0-9]{8}$");
+    }
 }
