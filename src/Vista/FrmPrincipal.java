@@ -8,17 +8,21 @@ import Modelo.Cliente;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
  * @author usuario
  */
 public class FrmPrincipal extends javax.swing.JFrame {
+    JScrollPane barra;
     Habitacion habitacion;
     PnlCliente pnlCliente;
     PnlReservHotel pnlReservHotel;
     PnlReserva pnlReserva;
     public static ArrayList<Cliente> listaDeClientes;
+    JScrollPane barra;
+ 
     
     /**
      * Creates new form FrmPrincipal
@@ -131,6 +135,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void mnPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnPrincipalMouseClicked
         // TODO add your handling code here:
+         barra=new JScrollPane();
+        this.add(barra,BorderLayout.CENTER);
       pnlReservHotel=new PnlReservHotel();
         agregarPanel(pnlReservHotel);
         
@@ -142,6 +148,8 @@ private void agregarPanel(JPanel pnl){
         pnlInicio.add(pnl, BorderLayout.CENTER);
         pnlInicio.revalidate();
         pnlInicio.repaint();
+        
+        
  }
     /**
      * @param args the command line arguments
