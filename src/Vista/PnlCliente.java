@@ -385,7 +385,8 @@ public class PnlCliente extends javax.swing.JPanel {
         }
     }
      private void agregarClienteALaTabla(Cliente c) {
-        dtmCliente.addRow(new Object[]{c.getNombre(), c.getApellido(),c.getNumeroCedula(), c.getTelefono()});
+        dtmCliente.addRow(new Object[]{c.getNombre(), c.getApellido(),
+            c.getNumeroCedula(), c.getTelefono()});
      
     }//GEN-LAST:event_btnEliminarActionPerformed
 
