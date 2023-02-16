@@ -4,28 +4,12 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="mnPrincipal">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Pagina Principal"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnPrincipalMouseClicked"/>
-          </Events>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="mnCliente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registro de Cliente"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnClienteMouseClicked"/>
-          </Events>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="mnHabitacion">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Gestion Habitacion"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnHabitacionMouseClicked"/>
           </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnReserva">
@@ -36,11 +20,20 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnReservaMouseClicked"/>
           </Events>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="mnPrincipal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gestion de habitaci&#xf2;n"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnPrincipalMouseClicked"/>
+          </Events>
+        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="RESERVHOTEL"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -73,6 +66,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnlInicio" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,7 +82,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="476" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="471" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
