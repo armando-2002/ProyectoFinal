@@ -14,8 +14,9 @@ public class Habitacion {
     private String tipoDeHabitacion;
     private double precio;
     private String descripcion;
-     private String [] servicios=new String [6];
-     private boolean estaDisponible;
+    private String [] servicios=new String [6];
+    private boolean estaDisponible;
+    private int capacidad;
      
      //get and set
 

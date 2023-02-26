@@ -8,12 +8,12 @@ package Vista;
  *
  * @author usuario
  */
-public class PnlFactura extends javax.swing.JPanel {
+public class PnlTarifas extends javax.swing.JPanel {
 
     /**
-     * Creates new form PnlFactura
+     * Creates new form PnlTarifas
      */
-    public PnlFactura() {
+    public PnlTarifas() {
         initComponents();
     }
 
@@ -30,11 +30,11 @@ public class PnlFactura extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGap(0, 617, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 482, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

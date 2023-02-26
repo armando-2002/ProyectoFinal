@@ -14,7 +14,7 @@ public class Reserva {
     private String formaDePago;
     private double totalAPagar;
     private double valorPorHabitacion;
-
+Habitacion habitacion;
     public Reserva() {
     }
 
@@ -80,6 +80,7 @@ public class Reserva {
 
     public void setTotalAPagar(double totalAPagar) {
         this.totalAPagar = totalAPagar;
+        
     }
     
     

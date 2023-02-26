@@ -20,8 +20,7 @@ import javax.swing.JPanel;
 public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
     PnlHabitacion pnlHabitacion;
-    PnlPrincipal pnlPrincipal;
-    PnlUsuario pnlUsuario;     
+    PnlPrincipal pnlPrincipal;    
     
      public static ArrayList<Cliente> listaDeClientes;
     /**
@@ -30,9 +29,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     public PaginaPrincipal() {
         initComponents();
-        pnlUsuario=new PnlUsuario();
-        //agregarPanelUsuario(pnlUsuario);
-        agregarPanel(pnlUsuario);
+         pnlPrincipal=new PnlPrincipal();
+        agregarPanel(pnlPrincipal);
         fecha();
         listaDeClientes = new ArrayList<>();
 
@@ -61,6 +59,8 @@ private void fecha(){
         jSeparator1 = new javax.swing.JSeparator();
         btnClientes = new javax.swing.JButton();
         btnReserva = new javax.swing.JButton();
+        btnServicios = new javax.swing.JButton();
+        btn = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
         pnlCabecero = new javax.swing.JPanel();
         lblFecha = new javax.swing.JLabel();
@@ -117,6 +117,34 @@ private void fecha(){
             }
         });
 
+        btnServicios.setBackground(new java.awt.Color(21, 101, 192));
+        btnServicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/servicios.jpeg"))); // NOI18N
+        btnServicios.setText("Servicios");
+        btnServicios.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btnServicios.setBorderPainted(false);
+        btnServicios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnServicios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnServicios.setIconTextGap(10);
+        btnServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServiciosActionPerformed(evt);
+            }
+        });
+
+        btn.setBackground(new java.awt.Color(21, 101, 192));
+        btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/tarifas.png"))); // NOI18N
+        btn.setText("Tarifas");
+        btn.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        btn.setBorderPainted(false);
+        btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn.setIconTextGap(10);
+        btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActionPerformed(evt);
+            }
+        });
+
         btnPrincipal.setBackground(new java.awt.Color(21, 101, 192));
         btnPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/home-outline.png"))); // NOI18N
         btnPrincipal.setText("Pagina principal");
@@ -141,9 +169,11 @@ private void fecha(){
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,13 +182,16 @@ private void fecha(){
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(37, 37, 37)
                 .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pnlCabecero.setBackground(new java.awt.Color(51, 102, 255));
@@ -178,10 +211,10 @@ private void fecha(){
         );
         pnlCabeceroLayout.setVerticalGroup(
             pnlCabeceroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCabeceroLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCabeceroLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         lblMensaje.setBackground(new java.awt.Color(204, 204, 204));
@@ -222,10 +255,10 @@ private void fecha(){
             pnlInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInicioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlCabecero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlCabecero, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -250,11 +283,10 @@ private void fecha(){
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
+    private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
         // TODO add your handling code here:
-        pnlPrincipal=new PnlPrincipal();
-        agregarPanel(pnlPrincipal);
-    }//GEN-LAST:event_btnPrincipalActionPerformed
+       
+    }//GEN-LAST:event_btnServiciosActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         // TODO add your handling code here:
@@ -267,6 +299,16 @@ private void fecha(){
          pnlHabitacion=new PnlHabitacion();
         agregarPanel(pnlHabitacion);
     }//GEN-LAST:event_btnReservaActionPerformed
+
+    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActionPerformed
+
+    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
+        // TODO add your handling code here:
+         pnlPrincipal=new PnlPrincipal();
+        agregarPanel(pnlPrincipal);
+    }//GEN-LAST:event_btnPrincipalActionPerformed
 private void agregarPanel(JPanel pnl){
      pnl.setSize(1000,620);
         pnl.setLocation(0,0);
@@ -312,9 +354,11 @@ private void agregarPanel(JPanel pnl){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnReserva;
+    private javax.swing.JButton btnServicios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblFecha;

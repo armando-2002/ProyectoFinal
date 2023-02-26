@@ -117,6 +117,7 @@ public class PnlCliente extends javax.swing.JPanel {
         lblError4.setText("jLabel8");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -124,6 +125,7 @@ public class PnlCliente extends javax.swing.JPanel {
         });
 
         btnActualizar.setText("Actualizar");
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
@@ -131,6 +133,7 @@ public class PnlCliente extends javax.swing.JPanel {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -307,7 +310,7 @@ public class PnlCliente extends javax.swing.JPanel {
                     indiceUltimoElemento));
             JOptionPane.showMessageDialog(pnlFondo, "Usuario guardado"
                 + " con éxito");
-       
+       vaciar();
         } else if (!Validador.esNombreValido(txtNombre.getText())) {
             JOptionPane.showMessageDialog(pnlFondo, 
                     "Nombre incorrecto", "ERROR", 
@@ -399,7 +402,12 @@ public class PnlCliente extends javax.swing.JPanel {
         txtNumeroCedula.setText(clienteSeleccionado.getNumeroCedula());
         txtNumeroTelefono.setText(clienteSeleccionado.getTelefono());
     }//GEN-LAST:event_tblClienteMouseClicked
-
+private void vaciar(){
+        txtNumeroTelefono.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtNumeroCedula.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
