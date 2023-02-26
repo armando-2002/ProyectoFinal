@@ -50,7 +50,9 @@ public class PnlReserva extends javax.swing.JPanel {
         lblError2 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
 
-        pnlReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Reserva"));
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        pnlReserva.setBackground(new java.awt.Color(255, 255, 255));
 
         lblReserva.setText("Reservación");
 
@@ -173,14 +175,14 @@ public class PnlReserva extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(pnlReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(pnlReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

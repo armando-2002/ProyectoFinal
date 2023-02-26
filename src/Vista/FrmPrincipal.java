@@ -5,7 +5,12 @@
 package Vista;
 
 import Modelo.Cliente;
+import Vista.Habitacion;
+import Vista.PnlCliente;
+import Vista.PnlHabitacion;
+import Vista.PnlReserva;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -15,8 +20,6 @@ import javax.swing.JScrollPane;
  * @author usuario
  */
 public class FrmPrincipal extends javax.swing.JFrame {
-    JScrollPane barra;
-    Habitacion habitacion;
     PnlCliente pnlCliente;
     PnlHabitacion pnlReservHotel;
     PnlReserva pnlReserva;
@@ -44,6 +47,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlInicio = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnEntrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnCliente = new javax.swing.JMenu();
         mnReserva = new javax.swing.JMenu();
@@ -52,15 +63,93 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RESERVHOTEL");
 
+        pnlInicio.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Usuario:");
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 3, 14)); // NOI18N
+        jLabel1.setText("INICIAR SESIÒN");
+
+        txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setText("Ingrese su nombre de usuario");
+        txtUsuario.setBorder(null);
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtUsuarioMousePressed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("Contraseña:");
+
+        txtContraseña.setForeground(new java.awt.Color(204, 204, 204));
+        txtContraseña.setText("********");
+        txtContraseña.setBorder(null);
+        txtContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtContraseñaMousePressed(evt);
+            }
+        });
+
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setOpaque(true);
+
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setOpaque(true);
+
+        btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlInicioLayout = new javax.swing.GroupLayout(pnlInicio);
         pnlInicio.setLayout(pnlInicioLayout);
         pnlInicioLayout.setHorizontalGroup(
             pnlInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 687, Short.MAX_VALUE)
+            .addGroup(pnlInicioLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(pnlInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlInicioLayout.createSequentialGroup()
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         pnlInicioLayout.setVerticalGroup(
             pnlInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGroup(pnlInicioLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInicioLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInicioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         mnCliente.setText("Registro de Cliente");
@@ -118,18 +207,45 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         pnlReserva=new PnlReserva();
         agregarPanel(pnlReserva);
-        //barra =new JScrollPane ();
-        //barra.add(pnlReserva);
+
     }//GEN-LAST:event_mnReservaMouseClicked
 
     private void mnPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnPrincipalMouseClicked
         // TODO add your handling code here:
-         barra=new JScrollPane();
-        this.add(barra,BorderLayout.CENTER);
       pnlReservHotel=new PnlHabitacion();
         agregarPanel(pnlReservHotel);
         
     }//GEN-LAST:event_mnPrincipalMouseClicked
+
+    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
+        // TODO add your handling code here:
+        if(txtUsuario.getText().equals("Ingrese su nombre de usuario")){
+            txtUsuario.setText("");
+            txtUsuario.setForeground(Color.black);
+        }
+        if(String.valueOf(txtContraseña.getPassword()).isEmpty()){
+            txtContraseña.setText("********");
+            txtContraseña.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtUsuarioMousePressed
+
+    private void txtContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContraseñaMousePressed
+        // TODO add your handling code here
+        if(String.valueOf(txtContraseña.getPassword()).equals("********")){
+            txtContraseña.setText("");
+            txtContraseña.setForeground(Color.gray);
+        }
+        if(txtUsuario.getText().isEmpty()){
+            txtUsuario.setText("Ingrese su nombre de usuario");
+            txtUsuario.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtContraseñaMousePressed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        // TODO add your handling code here:
+                pnlCliente=new PnlCliente();
+        agregarPanel(pnlCliente);
+    }//GEN-LAST:event_btnEntrarActionPerformed
 private void agregarPanel(JPanel pnl){
      pnl.setSize(1000,800);
         pnl.setLocation(0,0);
@@ -177,10 +293,18 @@ private void agregarPanel(JPanel pnl){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JMenu mnCliente;
     private javax.swing.JMenu mnPrincipal;
     private javax.swing.JMenu mnReserva;
     private javax.swing.JPanel pnlInicio;
+    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

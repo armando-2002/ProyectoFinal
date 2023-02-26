@@ -66,7 +66,11 @@ public class PnlCliente extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCliente = new javax.swing.JTable();
 
-        pnlFondo.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Cliente"));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(750, 430));
+
+        pnlFondo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFondo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblNombre.setText("Nombre");
 
@@ -154,19 +158,19 @@ public class PnlCliente extends javax.swing.JPanel {
                             .addComponent(txtNombre)
                             .addComponent(txtApellido)
                             .addComponent(txtNumeroCedula)
-                            .addComponent(txtNumeroTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)))
+                            .addComponent(txtNumeroTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+                        .addGap(41, 41, 41)
+                        .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblError2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(lblError1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblError3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblError4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(btnActualizar)))
-                .addGap(41, 41, 41)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminar)
-                    .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblError2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                        .addComponent(lblError1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblError3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblError4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addComponent(btnActualizar)
+                        .addGap(43, 43, 43)
+                        .addComponent(btnEliminar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,14 +195,18 @@ public class PnlCliente extends javax.swing.JPanel {
                     .addComponent(lblNumeroTelefono)
                     .addComponent(txtNumeroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblError4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnActualizar)
                     .addComponent(btnEliminar))
-                .addGap(23, 23, 23))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setBackground(new java.awt.Color(204, 255, 255));
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        tblCliente.setBackground(new java.awt.Color(204, 255, 204));
         tblCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -210,6 +218,8 @@ public class PnlCliente extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblCliente.setGridColor(new java.awt.Color(204, 255, 255));
+        tblCliente.setInheritsPopupMenu(true);
         tblCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblClienteMouseClicked(evt);
@@ -222,20 +232,19 @@ public class PnlCliente extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
+                    .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -290,10 +299,11 @@ public class PnlCliente extends javax.swing.JPanel {
                && Validador.esCedulaValida(txtNumeroCedula.getText())
                && Validador.esNumeroValido(txtNumeroTelefono.getText())) {
             Cliente c = new Cliente(txtNombre.getText(), 
-                    txtApellido.getText(), txtNumeroCedula.getText(),txtNumeroTelefono.getText());
-            FrmPrincipal.listaDeClientes.add(c);
-            int indiceUltimoElemento = FrmPrincipal.listaDeClientes.size() - 1;
-            agregarClienteALaTabla(FrmPrincipal.listaDeClientes.get(
+                    txtApellido.getText(), txtNumeroCedula.getText(),
+                    txtNumeroTelefono.getText());
+           PaginaPrincipal.listaDeClientes.add(c);
+            int indiceUltimoElemento = PaginaPrincipal.listaDeClientes.size() - 1;
+            agregarClienteALaTabla(PaginaPrincipal.listaDeClientes.get(
                     indiceUltimoElemento));
             JOptionPane.showMessageDialog(pnlFondo, "Usuario guardado"
                 + " con éxito");
@@ -329,7 +339,7 @@ public class PnlCliente extends javax.swing.JPanel {
             Cliente clienteActualizado = new Cliente(txtNombre.getText(),
                     txtApellido.getText(),txtNumeroCedula.getText(),
                     txtNumeroTelefono.getText());
-            FrmPrincipal.listaDeClientes.set(indiceClienteSeleccionado, clienteActualizado);
+            PaginaPrincipal.listaDeClientes.set(indiceClienteSeleccionado, clienteActualizado);
             limpiarTablaDeClientes();
             agregarListaCompletaALaTabla();
             indiceClienteSeleccionado = -1;
@@ -342,24 +352,11 @@ public class PnlCliente extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
-    private void tblClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClienteMouseClicked
-        // TODO add your handling code here:
-         indiceClienteSeleccionado = tblCliente.getSelectedRow();
-        //recuperar el cliente de la lista en el indice seleccionado
-        Cliente clienteSeleccionado = FrmPrincipal.listaDeClientes.get(
-        indiceClienteSeleccionado);
-        //colocar los datos del clienteSeleccionado en las cajas de texto
-        txtNombre.setText(clienteSeleccionado.getNombre());
-        txtApellido.setText(clienteSeleccionado.getApellido());
-        txtNumeroCedula.setText(clienteSeleccionado.getNumeroCedula());
-        txtNumeroTelefono.setText(clienteSeleccionado.getTelefono());
-    }//GEN-LAST:event_tblClienteMouseClicked
-
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
          indiceClienteSeleccionado = tblCliente.getSelectedRow();
         if(indiceClienteSeleccionado != -1){
-            FrmPrincipal.listaDeClientes.remove(indiceClienteSeleccionado);
+            PaginaPrincipal.listaDeClientes.remove(indiceClienteSeleccionado);
             limpiarTablaDeClientes();
             agregarListaCompletaALaTabla();
             indiceClienteSeleccionado = -1;
@@ -373,7 +370,7 @@ public class PnlCliente extends javax.swing.JPanel {
         
     }
         private void agregarListaCompletaALaTabla() {
-        for (Cliente c : FrmPrincipal.listaDeClientes) {
+        for (Cliente c :PaginaPrincipal.listaDeClientes) {
             agregarClienteALaTabla(c);
         }
     }                                                  
@@ -389,6 +386,19 @@ public class PnlCliente extends javax.swing.JPanel {
             c.getNumeroCedula(), c.getTelefono()});
      
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void tblClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClienteMouseClicked
+        // TODO add your handling code here:
+        indiceClienteSeleccionado = tblCliente.getSelectedRow();
+        //recuperar el cliente de la lista en el indice seleccionado
+        Cliente clienteSeleccionado =PaginaPrincipal.listaDeClientes.get(
+            indiceClienteSeleccionado);
+        //colocar los datos del clienteSeleccionado en las cajas de texto
+        txtNombre.setText(clienteSeleccionado.getNombre());
+        txtApellido.setText(clienteSeleccionado.getApellido());
+        txtNumeroCedula.setText(clienteSeleccionado.getNumeroCedula());
+        txtNumeroTelefono.setText(clienteSeleccionado.getTelefono());
+    }//GEN-LAST:event_tblClienteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

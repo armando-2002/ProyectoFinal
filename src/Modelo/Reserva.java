@@ -13,6 +13,7 @@ public class Reserva {
     private String fechaSalida;
     private String formaDePago;
     private double totalAPagar;
+    private double valorPorHabitacion;
 
     public Reserva() {
     }
@@ -23,6 +24,31 @@ public class Reserva {
         this.formaDePago = formaDePago;
         this.totalAPagar = totalAPagar;
     }
+
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public String getFechaSalida() {
+        return fechaSalida;
+    }
+
+    public void setFechaSalida(String fechaSalida) {
+        this.fechaSalida = fechaSalida;
+    }
+
+    public double getValorPorHabitacion() {
+        return valorPorHabitacion;
+    }
+
+    public void setValorPorHabitacion(double valorPorHabitacion) {
+        this.valorPorHabitacion = valorPorHabitacion;
+    }
+    
 
     public String getFechaInicio() {
         return fechaIngreso;
