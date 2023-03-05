@@ -21,6 +21,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
     PnlHabitacion pnlHabitacion;
     PnlPrincipal pnlPrincipal;    
+    PnlHabitacion2 pnlHabitacion2;
+    
     
      public static ArrayList<Cliente> listaDeClientes;
     /**
@@ -296,8 +298,10 @@ private void fecha(){
 
     private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
         // TODO add your handling code here:
-         pnlHabitacion=new PnlHabitacion();
-        agregarPanel(pnlHabitacion);
+         /*pnlHabitacion=new PnlHabitacion();
+        agregarPanel(pnlHabitacion);*/
+         pnlHabitacion2= new PnlHabitacion2();
+         agregarPanel(pnlHabitacion2);
     }//GEN-LAST:event_btnReservaActionPerformed
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
