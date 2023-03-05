@@ -4,17 +4,72 @@
  */
 package Vista;
 
+import Modelo.Cliente;
+import Modelo.Habitacion;
+import static Vista.PnlHabitacion.listaDeHabitaciones;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author usuario
  */
 public class PnlHabitacion2 extends javax.swing.JPanel {
-
+ DefaultTableModel dtmModelo;
+ Habitacion c;
     /**
      * Creates new form PnlTarifas
      */
     public PnlHabitacion2() {
         initComponents();
+        dtmModelo=new DefaultTableModel();
+        dtmModelo.addColumn("Tipo de habitacion");
+        dtmModelo.addColumn("Piso");
+        dtmModelo.addColumn("Numero de habitacion");
+        dtmModelo.addColumn("Capacidad");
+        dtmModelo.addColumn("Precio");
+        
+        tblHabitacion.setModel(dtmModelo);
+        for(Cliente r :PaginaPrincipal.listaDeClientes){
+            cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
+        }
+        for (Habitacion c:PaginaPrincipal.listaDeHabitaciones){
+     dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
+           c.getCapacidad(),c.getPrecio()});      
+        }
+
+
+/*
+listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+*/
     }
 
     /**
@@ -29,7 +84,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
         btgFormaDePago = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbClientes = new javax.swing.JComboBox<>();
         lblFechaEntrada = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jdcFechaSalida = new com.toedter.calendar.JDateChooser();
@@ -44,11 +99,9 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblHabitacion = new javax.swing.JTable();
 
         jLabel1.setText("Cliente");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblFechaEntrada.setText("Fecha de ingreso");
 
@@ -120,7 +173,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jdcFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jdcFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rbtTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rbtTarjetaDeCredito))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -135,7 +188,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jdcFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,7 +215,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblHabitacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -173,7 +226,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblHabitacion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -198,13 +251,12 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgFormaDePago;
+    private javax.swing.JComboBox<String> cmbClientes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -212,12 +264,12 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private com.toedter.calendar.JDateChooser jdcFechaEntrada;
     private com.toedter.calendar.JDateChooser jdcFechaSalida;
     private javax.swing.JLabel lblFechaEntrada;
     private javax.swing.JRadioButton rbtTarjetaDeCredito;
     private javax.swing.JRadioButton rbtTransferencia;
+    private javax.swing.JTable tblHabitacion;
     private javax.swing.JTextArea txtDescripccion;
     // End of variables declaration//GEN-END:variables
 }

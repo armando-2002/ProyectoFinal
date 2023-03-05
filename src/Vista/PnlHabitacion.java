@@ -5,12 +5,15 @@
 package Vista;
 
 import Modelo.Cliente;
+import Modelo.Habitacion;
+import java.util.ArrayList;
 
 /**
  *
  * @author usuario
  */
 public class PnlHabitacion extends javax.swing.JPanel {
+    public static ArrayList<Habitacion> listaDeHabitaciones;
     /**
      * Creates new form PnlReservHotel
      */
@@ -20,6 +23,7 @@ public class PnlHabitacion extends javax.swing.JPanel {
            for(Cliente r :PaginaPrincipal.listaDeClientes){
             cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
         }
+ 
     }
 
     /**

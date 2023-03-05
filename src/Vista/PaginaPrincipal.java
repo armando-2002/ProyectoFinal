@@ -5,6 +5,7 @@
 package Vista;
 
 import Modelo.Cliente;
+import Modelo.Habitacion;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,10 +20,9 @@ import javax.swing.JPanel;
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
-    PnlHabitacion pnlHabitacion;
     PnlPrincipal pnlPrincipal;    
     PnlHabitacion2 pnlHabitacion2;
-    
+    public static ArrayList<Habitacion> listaDeHabitaciones;
     
      public static ArrayList<Cliente> listaDeClientes;
     /**
@@ -35,6 +35,12 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         agregarPanel(pnlPrincipal);
         fecha();
         listaDeClientes = new ArrayList<>();
+        listaDeHabitaciones = new ArrayList<>();
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,20,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,28,2,80));
+listaDeHabitaciones.add(new Habitacion("Matrimonial",2,30,2,80));
+
 
     }
 
@@ -322,6 +328,7 @@ private void agregarPanel(JPanel pnl){
         pnlFondo.repaint();    
  
 }
+
     /**
      * @param args the command line arguments
      */

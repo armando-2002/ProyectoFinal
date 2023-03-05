@@ -20,13 +20,30 @@ public class Habitacion {
      
      //get and set
 
-    public Habitacion(int piso, int numeroDeHabitacion, String tipoDeHabitacion, double precio,
-            String descripcion) {
+    public Habitacion(String tipoDeHabitacion,int piso, int numeroDeHabitacion,int capacidad,
+            double precio
+            ) {
         this.piso = piso;
         this.numeroDeHabitacion = numeroDeHabitacion;
         this.tipoDeHabitacion = tipoDeHabitacion;
         this.precio = precio;
-        this.descripcion = descripcion;
+        this.capacidad=capacidad;
+    }
+
+    public int getNumeroDeHabitacion() {
+        return numeroDeHabitacion;
+    }
+
+    public void setNumeroDeHabitacion(int numeroDeHabitacion) {
+        this.numeroDeHabitacion = numeroDeHabitacion;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
     }
 
     public int getPiso() {
