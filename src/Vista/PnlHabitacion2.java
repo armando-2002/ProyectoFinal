@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class PnlHabitacion2 extends javax.swing.JPanel {
  DefaultTableModel dtmModelo;
  Habitacion c;
+ int indiceHabitacionSeleccionada=-1;
     /**
      * Creates new form PnlTarifas
      */
@@ -37,6 +38,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
      dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
            c.getCapacidad(),c.getPrecio()});      
         }
+indiceHabitacionSeleccionada=-1;
 /*
 listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
 listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
@@ -281,12 +283,16 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
 
     private void btnNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaReservaActionPerformed
         // TODO add your handling code here:
-        limpiar ();
-        
+        //limpiar ();
+         seleccionarHabitacion();
     }//GEN-LAST:event_btnNuevaReservaActionPerformed
 
     private void tblHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHabitacionMouseClicked
         // TODO add your handling code here:
+         indiceHabitacionSeleccionada=tblHabitacion.getSelectedRow();
+        //recypperar el cliente de la lista en el indice selccionado
+        Habitacion HabitacionSeleccionada=PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
+       
     }//GEN-LAST:event_tblHabitacionMouseClicked
 private void limpiar () {
     cmbClientes.setSelectedIndex(0);
@@ -295,7 +301,28 @@ private void limpiar () {
     btgFormaDePago.clearSelection();
     }
 private void seleccionarHabitacion(){
+    if (indiceHabitacionSeleccionada!=-1){
+            PaginaPrincipal.listaDeHabitaciones.remove(indiceHabitacionSeleccionada);
+            limpiarTablaDeClientes();
+            agregarListaCompletaALaTabla();
+            indiceHabitacionSeleccionada=-1;
+        }
     
+}
+
+    private void limpiarTablaDeClientes(){
+    for(int i=0;i<tblHabitacion.getRowCount();i++){
+        dtmModelo.removeRow(i);
+        i--;//decremento asi o asi; i-=1
+    }   
+}
+    private void agregarListaCompletaALaTabla(){
+    for(Habitacion c:PaginaPrincipal.listaDeHabitaciones)
+        agregarClienteALaTabla (c);
+}
+    private void agregarClienteALaTabla(Habitacion h){
+    dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
+    h.getCapacidad(),h.getPrecio()}); 
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgFormaDePago;
