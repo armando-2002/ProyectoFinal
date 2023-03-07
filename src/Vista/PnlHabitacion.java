@@ -13,14 +13,21 @@ import java.util.ArrayList;
  * @author usuario
  */
 public class PnlHabitacion extends javax.swing.JPanel {
-    public static ArrayList<Habitacion> listaDeHabitaciones;
+    public static ArrayList<Habitacion> listaDeHabitaciones = new ArrayList<>();
+    Habitacion connectingRooms = new Habitacion();
+    Habitacion cuadruple = new Habitacion();
+    Habitacion matrimonial = new Habitacion();
+    Habitacion triple = new Habitacion();
+    Habitacion simple = new Habitacion();
+    Habitacion suit = new Habitacion();
+    
     /**
      * Creates new form PnlReservHotel
      */
     Cliente cliente;
     public PnlHabitacion() {
         initComponents();
-           for(Cliente r :PaginaPrincipal.listaDeClientes){
+        for(Cliente r :PaginaPrincipal.listaDeClientes){
             cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
         }
  

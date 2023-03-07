@@ -29,7 +29,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
         dtmModelo.addColumn("Numero de habitacion");
         dtmModelo.addColumn("Capacidad");
         dtmModelo.addColumn("Precio");
-        
+    
         tblHabitacion.setModel(dtmModelo);
         for(Cliente r :PaginaPrincipal.listaDeClientes){
             cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  

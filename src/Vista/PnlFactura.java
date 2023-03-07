@@ -4,17 +4,25 @@
  */
 package Vista;
 
+import Modelo.Cliente;
+import Modelo.Habitacion;
+import java.util.ArrayList;
+
 /**
  *
  * @author usuario
  */
 public class PnlFactura extends javax.swing.JPanel {
+    public static ArrayList<Habitacion> listaDeHabitaciones;
 
     /**
      * Creates new form PnlFactura
      */
     public PnlFactura() {
         initComponents();
+        for(Cliente r :PaginaPrincipal.listaDeClientes){
+            cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
+        }
     }
 
     /**
