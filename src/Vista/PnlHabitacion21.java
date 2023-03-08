@@ -8,6 +8,7 @@ import Modelo.Cliente;
 import Modelo.Habitacion;
 import Modelo.Reserva;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -22,12 +23,14 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
  int indiceHabitacionSeleccionada=-1;
  PnlFactura pnlFactura;
  Reserva r;
+ private int diasTranscurridos;
  
     /**
      * Creates new form PnlTarifas
      */
     public PnlHabitacion21() {
         initComponents();
+        
         dtmModelo=new DefaultTableModel();
         dtmModelo.addColumn("Tipo de habitacion");
         dtmModelo.addColumn("Piso");
@@ -40,10 +43,10 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
             cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
         }
         for (Habitacion c:PaginaPrincipal.listaDeHabitaciones){
-     dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
+        dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
            c.getCapacidad(),c.getPrecio()});      
         }
-indiceHabitacionSeleccionada=-1;
+        indiceHabitacionSeleccionada=-1;
     }
     
 
@@ -77,8 +80,9 @@ indiceHabitacionSeleccionada=-1;
         txtDescripccion = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        brnFactura = new javax.swing.JButton();
+        btnFactura = new javax.swing.JButton();
         btnNuevaReserva = new javax.swing.JButton();
+        btnCalcuclarReserva = new javax.swing.JButton();
 
         tblHabitacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -168,10 +172,10 @@ indiceHabitacionSeleccionada=-1;
             }
         });
 
-        brnFactura.setText("Facturar");
-        brnFactura.addActionListener(new java.awt.event.ActionListener() {
+        btnFactura.setText("Facturar");
+        btnFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnFacturaActionPerformed(evt);
+                btnFacturaActionPerformed(evt);
             }
         });
 
@@ -182,32 +186,42 @@ indiceHabitacionSeleccionada=-1;
             }
         });
 
+        btnCalcuclarReserva.setText("Calcular Precio");
+        btnCalcuclarReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcuclarReservaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnNuevaReserva)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardar)
-                            .addComponent(brnFactura))
-                        .addGap(49, 49, 49))))
+                    .addComponent(btnGuardar)
+                    .addComponent(btnFactura))
+                .addGap(83, 83, 83))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCalcuclarReserva)
+                    .addComponent(btnNuevaReserva))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(btnGuardar)
-                .addGap(27, 27, 27)
-                .addComponent(brnFactura)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCalcuclarReserva)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(btnFactura)
+                .addGap(18, 18, 18)
                 .addComponent(btnNuevaReserva)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -314,6 +328,10 @@ indiceHabitacionSeleccionada=-1;
        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", new Locale("es"));       
         String fechaIngreso = sdf.format(jdcFechaEntrada.getDate());
         String fechaSalida = sdf.format(jdcFechaSalida.getDate());
+        Date fecha1 = jdcFechaEntrada.getDate();
+        Date fecha2 = jdcFechaSalida.getDate();
+        long diffMillis = fecha2.getTime() - fecha1.getTime();
+        int diasTranscurridos = (int) (diffMillis / 86400000);
         
         r=new Reserva(fechaIngreso,fechaSalida);
         if(rbtTransferencia.isSelected())
@@ -321,9 +339,9 @@ indiceHabitacionSeleccionada=-1;
         if(rbtTarjetaDeCredito.isSelected())
                 r.setFormaDePago("Tarjeta de credito");
         txtDescripccion.append("Fecha ingreso: " + r.getFechaIngreso() + "\nFecha salida: " +
-         r.getFechaSalida() + "\nForma de pago: " + r.getFormaDePago() + "\n");
+         r.getFechaSalida() + "\nForma de pago: " + r.getFormaDePago() + "\n" + "Dias reservados: "+ diasTranscurridos);
        
-       
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaReservaActionPerformed
@@ -332,11 +350,11 @@ indiceHabitacionSeleccionada=-1;
         seleccionarHabitacion();
     }//GEN-LAST:event_btnNuevaReservaActionPerformed
 
-    private void brnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnFacturaActionPerformed
+    private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
         // TODO add your handling code here:
         pnlFactura=new PnlFactura();
         agregarPanel(pnlFactura);
-    }//GEN-LAST:event_brnFacturaActionPerformed
+    }//GEN-LAST:event_btnFacturaActionPerformed
 
     private void tblHabitacion21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHabitacion21MouseClicked
         // TODO add your handling code here:
@@ -364,6 +382,13 @@ indiceHabitacionSeleccionada=-1;
          }
                    
     }//GEN-LAST:event_tblHabitacion21MouseClicked
+
+    private void btnCalcuclarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcuclarReservaActionPerformed
+        // TODO add your handling code here:
+        this.diasTranscurridos = diasTranscurridos;
+        
+        
+    }//GEN-LAST:event_btnCalcuclarReservaActionPerformed
 private void limpiar () {
     cmbClientes.setSelectedIndex(0);
     jdcFechaEntrada.setCalendar(null);
@@ -408,8 +433,9 @@ private void seleccionarHabitacion(){
  
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnFactura;
     private javax.swing.ButtonGroup btgFormaDePago;
+    private javax.swing.JButton btnCalcuclarReserva;
+    private javax.swing.JButton btnFactura;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnNuevaReserva;
     private javax.swing.JComboBox<String> cmbClientes;

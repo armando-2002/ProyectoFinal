@@ -40,7 +40,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
       
         listaDeClientes = new ArrayList<>();
         listaDeHabitaciones = new ArrayList<>();
-        listaDeHabitaciones.add(new Habitacion("Matrominial",2,25,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,20,2,80));
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,28,2,80));
         listaDeHabitaciones.add(new Habitacion("Simple",2,30,2,80));
