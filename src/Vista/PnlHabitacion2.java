@@ -15,9 +15,9 @@ import javax.swing.table.DefaultTableModel;
  * @author usuario
  */
 public class PnlHabitacion2 extends javax.swing.JPanel {
- DefaultTableModel dtmModelo;
- Habitacion c;
- int indiceHabitacionSeleccionada=-1;
+     DefaultTableModel dtmModelo;
+     Habitacion c;
+     int indiceHabitacionSeleccionada=-1;
     /**
      * Creates new form PnlTarifas
      */
@@ -35,7 +35,11 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
             cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
         }
         for (Habitacion c:PaginaPrincipal.listaDeHabitaciones){
-     dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
+            dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
+           c.getCapacidad(),c.getPrecio()});      
+        }
+        for (Habitacion r:PaginaPrincipal.listaDeHabitacionesMatrimoniales){
+            dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
            c.getCapacidad(),c.getPrecio()});      
         }
 indiceHabitacionSeleccionada=-1;
@@ -294,36 +298,42 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         Habitacion HabitacionSeleccionada=PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
        
     }//GEN-LAST:event_tblHabitacionMouseClicked
-private void limpiar () {
-    cmbClientes.setSelectedIndex(0);
-    jdcFechaEntrada.setCalendar(null);
-    jdcFechaSalida.setCalendar(null);
-    btgFormaDePago.clearSelection();
-    }
-private void seleccionarHabitacion(){
-    if (indiceHabitacionSeleccionada!=-1){
-            PaginaPrincipal.listaDeHabitaciones.remove(indiceHabitacionSeleccionada);
-            limpiarTablaDeClientes();
-            agregarListaCompletaALaTabla();
-            indiceHabitacionSeleccionada=-1;
+    private void limpiar () {
+        cmbClientes.setSelectedIndex(0);
+        jdcFechaEntrada.setCalendar(null);
+        jdcFechaSalida.setCalendar(null);
+        btgFormaDePago.clearSelection();
         }
-    
-}
+    private void seleccionarHabitacion(){
+        if (indiceHabitacionSeleccionada!=-1){
+                PaginaPrincipal.listaDeHabitaciones.remove(indiceHabitacionSeleccionada);
+                limpiarTablaDeClientes();
+                agregarListaCompletaALaTabla();
+                indiceHabitacionSeleccionada=-1;
+            }
 
-    private void limpiarTablaDeClientes(){
-    for(int i=0;i<tblHabitacion.getRowCount();i++){
-        dtmModelo.removeRow(i);
-        i--;//decremento asi o asi; i-=1
-    }   
-}
-    private void agregarListaCompletaALaTabla(){
-    for(Habitacion c:PaginaPrincipal.listaDeHabitaciones)
-        agregarClienteALaTabla (c);
-}
-    private void agregarClienteALaTabla(Habitacion h){
-    dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
-    h.getCapacidad(),h.getPrecio()}); 
-}
+    }
+
+        private void limpiarTablaDeClientes(){
+        for(int i=0;i<tblHabitacion.getRowCount();i++){
+            dtmModelo.removeRow(i);
+            i--;//decremento asi o asi; i-=1
+        }   
+    }
+        private void agregarListaCompletaALaTabla(){
+        for(Habitacion c:PaginaPrincipal.listaDeHabitaciones)
+            agregarClienteALaTabla (c);
+    }
+        private void agregarClienteALaTabla(Habitacion h){
+        dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
+        h.getCapacidad(),h.getPrecio()}); 
+    }
+    private void informacionHabitacion(){
+    if (indiceHabitacionSeleccionada!=-1){
+        PaginaPrincipal.listaDeHabitacionesMatrimoniales.remove(indiceHabitacionSeleccionada);
+        c.habitacionesDisponibles();
+    }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgFormaDePago;
     private javax.swing.JButton btnNuevaReserva;

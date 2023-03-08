@@ -6,6 +6,7 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.Habitacion;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -14,15 +15,21 @@ import java.util.ArrayList;
  */
 public class PnlFactura extends javax.swing.JPanel {
     public static ArrayList<Habitacion> listaDeHabitaciones;
+    public static ArrayList<Cliente> listaDeClientes;
+    Habitacion h = new Habitacion();
 
     /**
      * Creates new form PnlFactura
      */
     public PnlFactura() {
         initComponents();
-        for(Cliente r :PaginaPrincipal.listaDeClientes){
-            cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
+        ArrayList<Cliente> listaDeClientes1 = PaginaPrincipal.listaDeClientes;
+        for(Cliente r: PaginaPrincipal.listaDeClientes){
+            lblNombre.setText(r.getNombre());
         }
+        lblNombre.setText(h.getNombre());
+       
+        
     }
 
     /**

@@ -205,6 +205,8 @@ public class Habitacion {
         return h1;
    
     }     
+    
+
 
     @Override
     public String toString() {

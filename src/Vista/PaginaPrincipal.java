@@ -23,24 +23,30 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     PnlPrincipal pnlPrincipal;    
     PnlHabitacion2 pnlHabitacion2;
     public static ArrayList<Habitacion> listaDeHabitaciones;
-    
-     public static ArrayList<Cliente> listaDeClientes;
+    public static ArrayList<Cliente> listaDeClientes;
+    public static ArrayList<Habitacion> listaDeHabitacionesMatrimoniales;
     /**
      * Creates new form PaginaPrincipal
      */
 
     public PaginaPrincipal() {
         initComponents();
-         pnlPrincipal=new PnlPrincipal();
+        pnlPrincipal=new PnlPrincipal();
         agregarPanel(pnlPrincipal);
         fecha();
         listaDeClientes = new ArrayList<>();
         listaDeHabitaciones = new ArrayList<>();
-    listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-    listaDeHabitaciones.add(new Habitacion("Matrimonial",2,20,2,80));
-    listaDeHabitaciones.add(new Habitacion("Matrimonial",2,28,2,80));
-    listaDeHabitaciones.add(new Habitacion("Matrimonial",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,20,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,28,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,30,2,80));
+        
 
+        listaDeHabitacionesMatrimoniales = new ArrayList<>();
+        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,25,2,80));
+        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,20,2,80));
+        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,28,2,80));
+        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,30,2,80));
 
     }
 
