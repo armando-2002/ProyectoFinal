@@ -22,6 +22,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
     PnlPrincipal pnlPrincipal;    
     PnlHabitacion2 pnlHabitacion2;
+    PnlServicios pnlServicios;
     public static ArrayList<Habitacion> listaDeHabitaciones;
     public static ArrayList<Cliente> listaDeClientes;
     public static ArrayList<Habitacion> listaDeHabitacionesMatrimoniales;
@@ -299,6 +300,8 @@ private void fecha(){
 
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
         // TODO add your handling code here:
+        pnlServicios = new PnlServicios();
+        agregarPanel(pnlServicios);
        
     }//GEN-LAST:event_btnServiciosActionPerformed
 

@@ -106,6 +106,11 @@ public class PnlCliente extends javax.swing.JPanel {
 
         lblError1.setForeground(new java.awt.Color(255, 0, 0));
         lblError1.setText("jLabel5");
+        lblError1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lblError1KeyReleased(evt);
+            }
+        });
 
         lblError2.setForeground(new java.awt.Color(255, 51, 0));
         lblError2.setText("jLabel6");
@@ -402,6 +407,10 @@ public class PnlCliente extends javax.swing.JPanel {
         txtNumeroCedula.setText(clienteSeleccionado.getNumeroCedula());
         txtNumeroTelefono.setText(clienteSeleccionado.getTelefono());
     }//GEN-LAST:event_tblClienteMouseClicked
+
+    private void lblError1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblError1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblError1KeyReleased
 private void vaciar(){
         txtNumeroTelefono.setText("");
         txtNombre.setText("");
