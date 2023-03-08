@@ -6,6 +6,7 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.Habitacion;
+import Modelo.Reserva;
 import java.io.FileOutputStream;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,21 +17,19 @@ import javax.swing.JOptionPane;
  * @author usuario
  */
 public class PnlFactura extends javax.swing.JPanel {
-    public static ArrayList<Habitacion> listaDeHabitaciones;
-    public static ArrayList<Cliente> listaDeClientes;
-    Habitacion h = new Habitacion();
-
+    //public static ArrayList<Habitacion> listaDeHabitaciones;
+    //public static ArrayList<Cliente> listaDeClientes;
+Reserva h;
     /**
      * Creates new form PnlFactura
      */
     public PnlFactura() {
         initComponents();
-        ArrayList<Cliente> listaDeClientes1 = PaginaPrincipal.listaDeClientes;
         for(Cliente r: PaginaPrincipal.listaDeClientes){
             lblNombre.setText(r.getNombre());
         }
-        lblNombre.setText(h.getNombre());
-       
+        lblNombre.setVisible(true);
+       lblFechaIngresoFactura.setText(h.getFechaIngreso());
         
     }
 

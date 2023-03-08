@@ -6,6 +6,7 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.Habitacion;
+import Modelo.Reserva;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +19,8 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
  Habitacion c;
  int indiceHabitacionSeleccionada=-1;
  PnlFactura pnlFactura;
+ Reserva r;
+ 
     /**
      * Creates new form PnlTarifas
      */
@@ -40,6 +43,7 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
         }
 indiceHabitacionSeleccionada=-1;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -304,6 +308,19 @@ indiceHabitacionSeleccionada=-1;
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+       // String fechaIngreso=jdcFechaEntrada.getDateFormatString();
+       String fechaIngreso=jdcFechaEntrada.getDate().toString();
+        String fechaSalida=jdcFechaSalida.getDateFormatString();
+        
+        r=new Reserva(fechaIngreso,fechaSalida);
+ if(rbtTransferencia.isSelected())
+                r.setFormaDePago("Transferencia");
+        if(rbtTarjetaDeCredito.isSelected())
+                r.setFormaDePago("Tarjeta de credito");
+       txtDescripccion.append("Fecha ingreso: "+r.getFechaIngreso()+"Fecha salida: "+
+                        r.getFechaSalida()+"Forma de pago: "+r.getFormaDePago());
+        /*Asignar el valor a la variable raza*/
+       
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaReservaActionPerformed

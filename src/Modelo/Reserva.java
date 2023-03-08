@@ -18,11 +18,9 @@ Habitacion habitacion;
     public Reserva() {
     }
 
-    public Reserva(String fechaInicio, String fechaFin, String formaDePago, double totalAPagar) {
+    public Reserva(String fechaInicio, String fechaFin) {
         this.fechaIngreso = fechaInicio;
         this.fechaSalida = fechaFin;
-        this.formaDePago = formaDePago;
-        this.totalAPagar = totalAPagar;
     }
 
     public String getFechaIngreso() {
