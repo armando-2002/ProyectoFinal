@@ -20,6 +20,7 @@ import javax.swing.JPanel;
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
+    PnlServicios2 pnlServicios2;
     PnlPrincipal pnlPrincipal;    
     //PnlHabitacion21 pnlHabitacion21;
     PnlHabitacion21 pnlHabitacion21;
@@ -90,7 +91,6 @@ private void fecha(){
         btnClientes = new javax.swing.JButton();
         btnReserva = new javax.swing.JButton();
         btnServicios = new javax.swing.JButton();
-        btn = new javax.swing.JButton();
         btnPrincipal = new javax.swing.JButton();
         pnlCabecero = new javax.swing.JPanel();
         lblFecha = new javax.swing.JLabel();
@@ -161,20 +161,6 @@ private void fecha(){
             }
         });
 
-        btn.setBackground(new java.awt.Color(21, 101, 192));
-        btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/tarifas.png"))); // NOI18N
-        btn.setText("Tarifas");
-        btn.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        btn.setBorderPainted(false);
-        btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btn.setIconTextGap(10);
-        btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActionPerformed(evt);
-            }
-        });
-
         btnPrincipal.setBackground(new java.awt.Color(21, 101, 192));
         btnPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/home-outline.png"))); // NOI18N
         btnPrincipal.setText("Pagina principal");
@@ -201,7 +187,6 @@ private void fecha(){
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
@@ -216,8 +201,6 @@ private void fecha(){
                 .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -315,9 +298,10 @@ private void fecha(){
 
     private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
         // TODO add your handling code here:
-        pnlServicios = new PnlServicios();
-        agregarPanel(pnlServicios);
-       
+        //pnlServicios = new PnlServicios();
+        //agregarPanel(pnlServicios);
+       pnlServicios2=new PnlServicios2();
+       agregarPanel(pnlServicios2);
     }//GEN-LAST:event_btnServiciosActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
@@ -333,10 +317,6 @@ private void fecha(){
         pnlHabitacion21= new PnlHabitacion21();
          agregarPanel(pnlHabitacion21);
     }//GEN-LAST:event_btnReservaActionPerformed
-
-    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnActionPerformed
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
         // TODO add your handling code here:
@@ -389,7 +369,6 @@ private void agregarPanel(JPanel pnl){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnReserva;
