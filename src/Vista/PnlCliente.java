@@ -56,13 +56,13 @@ public class PnlCliente extends javax.swing.JPanel {
         txtApellido = new javax.swing.JTextField();
         txtNumeroCedula = new javax.swing.JTextField();
         txtNumeroTelefono = new javax.swing.JTextField();
-        lblError1 = new javax.swing.JLabel();
         lblError2 = new javax.swing.JLabel();
         lblError3 = new javax.swing.JLabel();
         lblError4 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        lblError1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCliente = new javax.swing.JTable();
 
@@ -85,10 +85,20 @@ public class PnlCliente extends javax.swing.JPanel {
                 txtNombreActionPerformed(evt);
             }
         });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
+        });
 
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
+            }
+        });
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtApellidoKeyReleased(evt);
             }
         });
 
@@ -97,18 +107,20 @@ public class PnlCliente extends javax.swing.JPanel {
                 txtNumeroCedulaActionPerformed(evt);
             }
         });
+        txtNumeroCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumeroCedulaKeyReleased(evt);
+            }
+        });
 
         txtNumeroTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroTelefonoActionPerformed(evt);
             }
         });
-
-        lblError1.setForeground(new java.awt.Color(255, 0, 0));
-        lblError1.setText("jLabel5");
-        lblError1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNumeroTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                lblError1KeyReleased(evt);
+                txtNumeroTelefonoKeyReleased(evt);
             }
         });
 
@@ -145,6 +157,9 @@ public class PnlCliente extends javax.swing.JPanel {
             }
         });
 
+        lblError1.setForeground(new java.awt.Color(255, 0, 0));
+        lblError1.setText("jLabel1");
+
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
         pnlFondo.setLayout(pnlFondoLayout);
         pnlFondoLayout.setHorizontalGroup(
@@ -170,15 +185,15 @@ public class PnlCliente extends javax.swing.JPanel {
                         .addGap(41, 41, 41)
                         .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblError2, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                            .addComponent(lblError1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblError3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblError4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lblError4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblError1)))
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(btnActualizar)
                         .addGap(43, 43, 43)
                         .addComponent(btnEliminar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,46 +273,46 @@ public class PnlCliente extends javax.swing.JPanel {
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-        if(Validador.esNombreValido(txtNombre.getText())){
+        /*if(Validador.esNombreValido(txtNombre.getText())){
             lblError1.setVisible(false);
         }
         else{
             lblError1.setText("Nombre Incorrecto");
             lblError1.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
         // TODO add your handling code here:
-        if(Validador.esApellidoValido(txtApellido.getText())){
+       /* if(Validador.esApellidoValido(txtApellido.getText())){
             lblError2.setVisible(false);
         }
         else{
             lblError2.setText("Apellido Incorrecto");
             lblError2.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_txtApellidoActionPerformed
 
     private void txtNumeroCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroCedulaActionPerformed
         // TODO add your handling code here:
-        if(Validador.esCedulaValida(txtNumeroCedula.getText())){
+        /*if(Validador.esCedulaValida(txtNumeroCedula.getText())){
             lblError3.setVisible(false);
         }
         else{
             lblError3.setText("Número de Cedula Incorrecto");
             lblError3.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_txtNumeroCedulaActionPerformed
 
     private void txtNumeroTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroTelefonoActionPerformed
         // TODO add your handling code here:
-        if(Validador.esNumeroValido(txtNumeroTelefono.getText())){
+        /*if(Validador.esNumeroValido(txtNumeroTelefono.getText())){
             lblError4.setVisible(false);
         }
         else{
             lblError4.setText("Número de teléfono Incorrecto");
             lblError4.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_txtNumeroTelefonoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -408,9 +423,53 @@ public class PnlCliente extends javax.swing.JPanel {
         txtNumeroTelefono.setText(clienteSeleccionado.getTelefono());
     }//GEN-LAST:event_tblClienteMouseClicked
 
-    private void lblError1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblError1KeyReleased
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblError1KeyReleased
+        if(Validador.esNombreValido(txtNombre.getText())){
+            lblError1.setVisible(false);
+        }
+        else{
+            lblError1.setText("Nombre Incorrecto");
+            lblError1.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyReleased
+        // TODO add your handling code here:
+        if(Validador.esApellidoValido(txtApellido.getText())){
+            lblError2.setVisible(false);
+        }
+        else{
+            lblError2.setText("Apellido Incorrecto");
+            lblError2.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_txtApellidoKeyReleased
+
+    private void txtNumeroCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroCedulaKeyReleased
+        // TODO add your handling code here:
+        if(Validador.esCedulaValida(txtNumeroCedula.getText())){
+            lblError3.setVisible(false);
+        }
+        else{
+            lblError3.setText("Número de Cedula Incorrecto");
+            lblError3.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_txtNumeroCedulaKeyReleased
+
+    private void txtNumeroTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroTelefonoKeyReleased
+        // TODO add your handling code here:
+        if(Validador.esNumeroValido(txtNumeroTelefono.getText())){
+            lblError4.setVisible(false);
+        }
+        else{
+            lblError4.setText("Número de teléfono Incorrecto");
+            lblError4.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_txtNumeroTelefonoKeyReleased
 private void vaciar(){
         txtNumeroTelefono.setText("");
         txtNombre.setText("");
