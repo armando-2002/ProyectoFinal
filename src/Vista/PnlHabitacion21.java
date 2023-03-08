@@ -7,6 +7,8 @@ package Vista;
 import Modelo.Cliente;
 import Modelo.Habitacion;
 import Modelo.Reserva;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -309,16 +311,19 @@ indiceHabitacionSeleccionada=-1;
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
        // String fechaIngreso=jdcFechaEntrada.getDateFormatString();
-       String fechaIngreso=jdcFechaEntrada.getDate().toString();
-        String fechaSalida=jdcFechaSalida.getDateFormatString();
+       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", new Locale("es"));
+        String fechaIngreso = sdf.format(jdcFechaEntrada.getDate());
+        String fechaSalida = sdf.format(jdcFechaSalida.getDate());
         
         r=new Reserva(fechaIngreso,fechaSalida);
- if(rbtTransferencia.isSelected())
+        if(rbtTransferencia.isSelected())
                 r.setFormaDePago("Transferencia");
         if(rbtTarjetaDeCredito.isSelected())
                 r.setFormaDePago("Tarjeta de credito");
        txtDescripccion.append("Fecha ingreso: "+r.getFechaIngreso()+"Fecha salida: "+
                         r.getFechaSalida()+"Forma de pago: "+r.getFormaDePago());
+       txtDescripccion.setText(r.toString());
+       
         /*Asignar el valor a la variable raza*/
        
     }//GEN-LAST:event_btnGuardarActionPerformed

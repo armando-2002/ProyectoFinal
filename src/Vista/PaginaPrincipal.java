@@ -243,11 +243,11 @@ private void fecha(){
         pnlFondo.setLayout(pnlFondoLayout);
         pnlFondoLayout.setHorizontalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 784, Short.MAX_VALUE)
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 525, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlInicioLayout = new javax.swing.GroupLayout(pnlInicio);
@@ -316,7 +316,7 @@ private void fecha(){
          /*pnlHabitacion21= new PnlHabitacion21();
          agregarPanel(pnlHabitacion21);*/
         pnlHabitacion21= new PnlHabitacion21();
-         agregarPanel(pnlHabitacion21);
+        agregarPanel(pnlHabitacion21);
     }//GEN-LAST:event_btnReservaActionPerformed
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed

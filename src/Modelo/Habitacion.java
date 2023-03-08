@@ -249,10 +249,10 @@ public class Habitacion {
     
     @Override
     public String toString() {
-        return "Habitacion{" + "piso=" + piso + ", numeroDeHabitacion=" + 
-                numeroDeHabitacion + ", tipoDeHabitacion=" + tipoDeHabitacion + 
-                ", precio=" + precio + ", descripcion=" + descripcion + ", servicios="
-                + servicios + ", estaDisponible=" + estaDisponible + '}';
+        return "Habitacion\n" + "piso: " + piso + "\nnumeroDeHabitacion: " + 
+                numeroDeHabitacion + "\ntipoDeHabitacion: " + tipoDeHabitacion + 
+                ", precio=" + precio + "\ndescripcion: " + descripcion + "\nservicios: "
+                + servicios + "\ncestaDisponible: " + estaDisponible ;
     }
      
      
