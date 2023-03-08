@@ -22,7 +22,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
     PnlPrincipal pnlPrincipal;    
     //PnlHabitacion21 pnlHabitacion21;
-    PnlHabitacion2 pnlHabitacion2;
+    PnlHabitacion21 pnlHabitacion21;
     PnlServicios pnlServicios;
     public static ArrayList<Habitacion> listaDeHabitaciones;
     public static ArrayList<Cliente> listaDeClientes;
@@ -38,10 +38,28 @@ public class PaginaPrincipal extends javax.swing.JFrame {
       
         listaDeClientes = new ArrayList<>();
         listaDeHabitaciones = new ArrayList<>();
-        listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrominial",2,25,2,80));
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,20,2,80));
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,28,2,80));
-        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Simple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Simple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Simple",2,30,2,80));
+        
+        listaDeHabitaciones.add(new Habitacion("Triple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Triple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Triple",2,30,2,80));
+        
+        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,30,2,80));
+        
+        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,30,2,80));
+        
+        listaDeHabitaciones.add(new Habitacion("Suite",2,30,2,80));
+         listaDeHabitaciones.add(new Habitacion("Suite",2,30,2,80));
+         listaDeHabitaciones.add(new Habitacion("Suite",2,30,2,80));
         
 
        
@@ -310,12 +328,10 @@ private void fecha(){
 
     private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
         // TODO add your handling code here:
-         /*pnlHabitacion=new PnlHabitacion();
-        agregarPanel(pnlHabitacion);*/
-        /* pnlHabitacion21= new PnlHabitacion21();
+         /*pnlHabitacion21= new PnlHabitacion21();
          agregarPanel(pnlHabitacion21);*/
-        pnlHabitacion2= new PnlHabitacion2();
-         agregarPanel(pnlHabitacion2);
+        pnlHabitacion21= new PnlHabitacion21();
+         agregarPanel(pnlHabitacion21);
     }//GEN-LAST:event_btnReservaActionPerformed
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed

@@ -6,9 +6,6 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.Habitacion;
-import static Vista.PnlHabitacion.listaDeHabitaciones;
-import java.awt.BorderLayout;
-import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +30,7 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
         dtmModelo.addColumn("Capacidad");
         dtmModelo.addColumn("Precio");
         
-        tblHabitacion2.setModel(dtmModelo);
+        tblHabitacion21.setModel(dtmModelo);
         for(Cliente r :PaginaPrincipal.listaDeClientes){
             cmbClientes.addItem(r.getNombre() +" "+r.getApellido());  
         }
@@ -42,37 +39,6 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
            c.getCapacidad(),c.getPrecio()});      
         }
 indiceHabitacionSeleccionada=-1;
-/*
-listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-*/
     }
 
     /**
@@ -90,7 +56,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         fondo = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tblHabitacion2 = new javax.swing.JTable();
+        tblHabitacion21 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         lblFechaEntrada = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -126,10 +92,13 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         });
         jScrollPane1.setViewportView(tblHabitacion);
 
+        fondo.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        fondo.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        tblHabitacion2.setModel(new javax.swing.table.DefaultTableModel(
+        tblHabitacion21.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -139,8 +108,27 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
-        jScrollPane5.setViewportView(tblHabitacion2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblHabitacion21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblHabitacion21MouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tblHabitacion21);
+        if (tblHabitacion21.getColumnModel().getColumnCount() > 0) {
+            tblHabitacion21.getColumnModel().getColumn(0).setResizable(false);
+            tblHabitacion21.getColumnModel().getColumn(1).setResizable(false);
+            tblHabitacion21.getColumnModel().getColumn(2).setResizable(false);
+            tblHabitacion21.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel1.setText("Cliente");
 
@@ -254,8 +242,8 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -311,10 +299,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
 
     private void tblHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHabitacionMouseClicked
         // TODO add your handling code here:
-        indiceHabitacionSeleccionada=tblHabitacion.getSelectedRow();
-        //recypperar el cliente de la lista en el indice selccionado
-        Habitacion HabitacionSeleccionada=PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
-
+                
     }//GEN-LAST:event_tblHabitacionMouseClicked
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -332,11 +317,41 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         pnlFactura=new PnlFactura();
         agregarPanel(pnlFactura);
     }//GEN-LAST:event_brnFacturaActionPerformed
+
+    private void tblHabitacion21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHabitacion21MouseClicked
+        // TODO add your handling code here:
+         indiceHabitacionSeleccionada=tblHabitacion21.getSelectedRow();
+         Habitacion HabitacionSeleccionada=PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
+         borrarAreaDeTexto();
+         if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Matrimonial")){
+             txtDescripccion.append(HabitacionSeleccionada.habitacionDoble()+ "\n"); 
+         }
+         if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Triple")){
+          txtDescripccion.append(HabitacionSeleccionada.habitacionTriple()+ "\n"); 
+         }          
+         if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Simple")){
+             txtDescripccion.append(HabitacionSeleccionada.habitacionSimple()+ "\n"); 
+         }
+         
+             if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Cuadruple")){
+             txtDescripccion.append(HabitacionSeleccionada.habitacionCuadruple()+ "\n"); 
+         }
+             if(HabitacionSeleccionada.getTipoDeHabitacion().equals("ConnectingRooms")){
+            txtDescripccion.append(HabitacionSeleccionada.habitacionConnectingRooms()+ "\n");   
+         }
+             if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Suite")){
+             txtDescripccion.append(HabitacionSeleccionada.Suite()+"\n");
+         }
+                   
+    }//GEN-LAST:event_tblHabitacion21MouseClicked
 private void limpiar () {
     cmbClientes.setSelectedIndex(0);
     jdcFechaEntrada.setCalendar(null);
     jdcFechaSalida.setCalendar(null);
     btgFormaDePago.clearSelection();
+    }
+private void borrarAreaDeTexto(){
+        txtDescripccion.setText("");
     }
 private void seleccionarHabitacion(){
     if (indiceHabitacionSeleccionada!=-1){
@@ -349,16 +364,16 @@ private void seleccionarHabitacion(){
 }
 
     private void limpiarTablaDeClientes(){
-    for(int i=0;i<tblHabitacion2.getRowCount();i++){
+    for(int i=0;i<tblHabitacion21.getRowCount();i++){
         dtmModelo.removeRow(i);
         i--;//decremento asi o asi; i-=1
     }   
 }
     private void agregarListaCompletaALaTabla(){
     for(Habitacion c:PaginaPrincipal.listaDeHabitaciones)
-        agregarClienteALaTabla (c);
+        agregarHabitacionesALaTabla (c);
 }
-    private void agregarClienteALaTabla(Habitacion h){
+    private void agregarHabitacionesALaTabla(Habitacion h){
     dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
     h.getCapacidad(),h.getPrecio()}); 
 }
@@ -394,7 +409,7 @@ private void seleccionarHabitacion(){
     private javax.swing.JRadioButton rbtTarjetaDeCredito;
     private javax.swing.JRadioButton rbtTransferencia;
     private javax.swing.JTable tblHabitacion;
-    private javax.swing.JTable tblHabitacion2;
+    private javax.swing.JTable tblHabitacion21;
     private javax.swing.JTextArea txtDescripccion;
     // End of variables declaration//GEN-END:variables
 }

@@ -208,41 +208,41 @@ public class Habitacion {
     
     
     public String habitacionSimple(){
-        this.descripcion = "Cuenta con una cama individual y una superficie que "
+        this.descripcion = "Cuenta con una cama individual y una superficie que\n "
                 + "puede variar entre los 8 y 14 metros";
         return this.descripcion;
     }
     
     public String habitacionDoble(){
-         this.descripcion = "Cuenta con dos camas individuales o una cama doble"
+         this.descripcion = "Cuenta con dos camas individuales o una cama doble\n"
                 + "ideal para dos adultos. ";
         return this.descripcion;
     }
     
     public String habitacionTriple(){
-        this.descripcion = "Cuenta con tres camas individuales o 1 cama de matrimonio"
-               + "y una cama individual. Son lo suficientemente grandes para alojar"
+        this.descripcion = "Cuenta con tres camas individuales o 1 cama de matrimonio \n"
+               + "y una cama individual. Son lo suficientemente grandes para alojar \n "
                + "a tres personas.";
         return this.descripcion;
     }
     
     public String habitacionCuadruple(){
-        this.descripcion = "Las habitaciones cuádruples tienen cuatro camas "
-           + "individuales o una cama grande con literas, son luminosas"
+        this.descripcion = "Las habitaciones cuádruples tienen cuatro camas \n"
+           + "individuales o una cama grande con literas, son luminosas \n"
            + "y tranquilas para garantizar el descanso de nuestros visitantes.";
         return this.descripcion;
     }
     
     public String habitacionConnectingRooms(){
-        this.descripcion = "Se trata de habitaciones dobles conectadas entre sí"
-           + "a través de una puerta. Tiene su propio pasillo con acceso al"
+        this.descripcion = "Se trata de habitaciones dobles conectadas entre sí\n"
+           + "a través de una puerta. Tiene su propio pasillo con acceso al\n"
            + "pasillo";
         return this.descripcion;
     }
     
-    public String suite(){
-       this.descripcion = "Son las mejores y más lujosas habitaciones,"
-           + " cuentan con dos habitaciones dobles,"
+    public String Suite(){
+       this.descripcion = "Son las mejores y más lujosas habitaciones,\n"
+           + " cuentan con dos habitaciones dobles,\n"
            + " 2 baños, salón y estancia. ";
         return this.descripcion;
     }

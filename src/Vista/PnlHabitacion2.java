@@ -6,10 +6,7 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.Habitacion;
-import Modelo.HabitacionMatrimonial;
-import static Vista.PnlHabitacion.listaDeHabitaciones;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 public class PnlHabitacion2 extends javax.swing.JPanel {
      DefaultTableModel dtmModelo;
      Habitacion c;
-     HabitacionMatrimonial hm;
+     PnlFactura pnlFactura;
      
      int indiceHabitacionSeleccionada=-1;
     /**
@@ -44,37 +41,6 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
         }
         
 indiceHabitacionSeleccionada=-1;
-/*
-listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
-*/
     }
 
     /**
@@ -87,7 +53,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
     private void initComponents() {
 
         btgFormaDePago = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        fondo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cmbClientes = new javax.swing.JComboBox<>();
         lblFechaEntrada = new javax.swing.JLabel();
@@ -101,11 +67,19 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         txtResult = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnFacturar = new javax.swing.JButton();
         btnNuevaReserva = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        fondotabla = new javax.swing.JScrollPane();
         tblHabitacion = new javax.swing.JTable();
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                formComponentMoved(evt);
+            }
+        });
+
+        fondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("Cliente");
 
@@ -137,7 +111,12 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
             }
         });
 
-        jButton2.setText("Facturar");
+        btnFacturar.setText("Facturar");
+        btnFacturar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturarActionPerformed(evt);
+            }
+        });
 
         btnNuevaReserva.setText("Nueva Reserva");
         btnNuevaReserva.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +138,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnGuardar)
-                            .addComponent(jButton2))
+                            .addComponent(btnFacturar))
                         .addGap(49, 49, 49))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -168,7 +147,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                 .addGap(19, 19, 19)
                 .addComponent(btnGuardar)
                 .addGap(27, 27, 27)
-                .addComponent(jButton2)
+                .addComponent(btnFacturar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(btnNuevaReserva)
                 .addGap(19, 19, 19))
@@ -176,71 +155,8 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
 
         jLabel4.setText("Elija el tipo de habitación de su preferencia");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblFechaEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jdcFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jdcFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtTarjetaDeCredito))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jdcFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jdcFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtTarjetaDeCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addComponent(rbtTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        fondotabla.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        fondotabla.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         tblHabitacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -258,7 +174,75 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                 tblHabitacionMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblHabitacion);
+        fondotabla.setViewportView(tblHabitacion);
+
+        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
+        fondo.setLayout(fondoLayout);
+        fondoLayout.setHorizontalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblFechaEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jdcFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbtTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jdcFechaEntrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbtTarjetaDeCredito))
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(fondotabla, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fondoLayout.setVerticalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jdcFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jdcFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbtTarjetaDeCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbtTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fondotabla, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -266,19 +250,13 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 802, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -296,34 +274,45 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
           //informacionHabitacion();
     }//GEN-LAST:event_btnNuevaReservaActionPerformed
 
+    private void btnFacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarActionPerformed
+        // TODO add your handling code here:
+        pnlFactura=new PnlFactura();
+        agregarPanel(pnlFactura);
+    }//GEN-LAST:event_btnFacturarActionPerformed
+
     private void tblHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHabitacionMouseClicked
         // TODO add your handling code here:
-         indiceHabitacionSeleccionada=tblHabitacion.getSelectedRow();
+        indiceHabitacionSeleccionada=tblHabitacion.getSelectedRow();
          Habitacion HabitacionSeleccionada=PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
          if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Triple")){
-          txtResult.append(HabitacionSeleccionada.habitacionTriple()+ "\n");    
-         }else {
-             JOptionPane.showMessageDialog(null, "Naanis");
+          txtResult.append(HabitacionSeleccionada.habitacionTriple()+ "\n"); 
+         }          
+         borrarAres();
+         if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Simple")){
+             txtResult.append(HabitacionSeleccionada.habitacionSimple()+ "\n"); 
+         }else if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Matrimonial")){
+             txtResult.append(HabitacionSeleccionada.habitacionDoble()+ "\n"); 
+         }else if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Cuadruple")){
+             txtResult.append(HabitacionSeleccionada.habitacionCuadruple()+ "\n"); 
+         }else if(HabitacionSeleccionada.getTipoDeHabitacion().equals(" ConnectingRooms")){
+             txtResult.append(HabitacionSeleccionada.habitacionConnectingRooms()+ "\n");   
+         }else{
+             txtResult.append(HabitacionSeleccionada.Suite()+"\n");
          }
-         
-        //recypperar el cliente de la lista en el indice selccionado 
-/*if(HabitacionSeleccionada==PaginaPrincipal.listaDeHabitacionesMatrimoniales.
-        get(indiceHabitacionSeleccionada)){       
-        txtResult.append(c.habitacionDoble()+ "\n"); 
-    }
- if(HabitacionSeleccionada==PaginaPrincipal.listaDeHabitacionesTriples.
-            get(indiceHabitacionSeleccionada)){
-        txtResult.append(c.habitacionTriple()+ "\n"); */
-        
-    //}
-  
     }//GEN-LAST:event_tblHabitacionMouseClicked
+
+    private void formComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentMoved
     private void limpiar () {
         cmbClientes.setSelectedIndex(0);
         jdcFechaEntrada.setCalendar(null);
         jdcFechaSalida.setCalendar(null);
         btgFormaDePago.clearSelection();
         }
+    private void borrarAres(){
+        txtResult.setText("");
+    }
     private void seleccionarHabitacion(){
         if (indiceHabitacionSeleccionada!=-1){
                 PaginaPrincipal.listaDeHabitaciones.remove(indiceHabitacionSeleccionada);
@@ -332,8 +321,6 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                 indiceHabitacionSeleccionada=-1;
         }
     }
-     
-    
         private void limpiarTablaDeClientes(){
         for(int i=0;i<tblHabitacion.getRowCount();i++){
             dtmModelo.removeRow(i);
@@ -349,27 +336,29 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
         h.getCapacidad(),h.getPrecio()}); 
     }
-   /* private void informacionHabitacion(){
-    if (indiceHabitacionSeleccionada!=-1){
-        
-         //txtares.append(c.toString()+ "\n");
-         txtResult.append(c.habitacionDoble());
-        //txtDescripcion.setText(c.habitacionDoble());
-    }
-    }*/
+   private void agregarPanel(JPanel pnl){
+     pnl.setSize(1000,620);
+        pnl.setLocation(0,0);
+        fondo.removeAll();
+        fondo.add(pnl);
+       fondo.revalidate();
+        fondo.repaint();    
+
+ 
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgFormaDePago;
+    private javax.swing.JButton btnFacturar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnNuevaReserva;
     private javax.swing.JComboBox<String> cmbClientes;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel fondo;
+    private javax.swing.JScrollPane fondotabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JDateChooser jdcFechaEntrada;
     private com.toedter.calendar.JDateChooser jdcFechaSalida;

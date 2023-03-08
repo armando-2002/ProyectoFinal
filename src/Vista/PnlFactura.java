@@ -6,8 +6,10 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.Habitacion;
+import java.io.FileOutputStream;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -67,6 +69,7 @@ public class PnlFactura extends javax.swing.JPanel {
         lblFormaPago = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblFormaPagoFactura = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         lblNombreFactura.setText("Nombre");
 
@@ -115,6 +118,13 @@ public class PnlFactura extends javax.swing.JPanel {
         lblFormaPago.setText("Forma de Pago");
 
         lblFormaPagoFactura.setText("jLabel1");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,13 +181,15 @@ public class PnlFactura extends javax.swing.JPanel {
                         .addComponent(lblNumeroFactura)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblTipoHabitacionFactura)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblFormaPagoFactura)
-                        .addGap(388, 388, 388))))
+                        .addGap(388, 388, 388))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(lblTipoHabitacionFactura))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +237,9 @@ public class PnlFactura extends javax.swing.JPanel {
                     .addComponent(lblFormaPago)
                     .addComponent(jLabel2)
                     .addComponent(lblFormaPagoFactura))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -246,8 +260,14 @@ public class PnlFactura extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFactura;
