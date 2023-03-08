@@ -6,8 +6,10 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.Habitacion;
+import Modelo.HabitacionMatrimonial;
 import static Vista.PnlHabitacion.listaDeHabitaciones;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,6 +19,8 @@ import javax.swing.table.DefaultTableModel;
 public class PnlHabitacion2 extends javax.swing.JPanel {
      DefaultTableModel dtmModelo;
      Habitacion c;
+     HabitacionMatrimonial hm;
+     
      int indiceHabitacionSeleccionada=-1;
     /**
      * Creates new form PnlTarifas
@@ -38,10 +42,7 @@ public class PnlHabitacion2 extends javax.swing.JPanel {
             dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
            c.getCapacidad(),c.getPrecio()});      
         }
-        for (Habitacion r:PaginaPrincipal.listaDeHabitacionesMatrimoniales){
-            dtmModelo.addRow(new Object[] {c.getTipoDeHabitacion(),c.getPiso(),c.getNumeroDeHabitacion(),
-           c.getCapacidad(),c.getPrecio()});      
-        }
+        
 indiceHabitacionSeleccionada=-1;
 /*
 listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
@@ -97,9 +98,9 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         rbtTarjetaDeCredito = new javax.swing.JRadioButton();
         rbtTransferencia = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtDescripccion = new javax.swing.JTextArea();
+        txtResult = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnNuevaReserva = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -124,15 +125,15 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         btgFormaDePago.add(rbtTransferencia);
         rbtTransferencia.setText("Transferencia");
 
-        txtDescripccion.setColumns(20);
-        txtDescripccion.setRows(5);
-        txtDescripccion.setBorder(javax.swing.BorderFactory.createTitledBorder("Descripcción de habitación"));
-        jScrollPane2.setViewportView(txtDescripccion);
+        txtResult.setColumns(20);
+        txtResult.setRows(5);
+        txtResult.setBorder(javax.swing.BorderFactory.createTitledBorder("Descripcción de habitación"));
+        jScrollPane2.setViewportView(txtResult);
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -157,7 +158,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(btnGuardar)
                             .addComponent(jButton2))
                         .addGap(49, 49, 49))))
         );
@@ -165,7 +166,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jButton1)
+                .addComponent(btnGuardar)
                 .addGap(27, 27, 27)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
@@ -281,22 +282,41 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+       /* hm=new HabitacionMatrimonial();
+       txtResult.append(hm.toString()+ "\n");
+       */ 
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaReservaActionPerformed
         // TODO add your handling code here:
         //limpiar ();
          seleccionarHabitacion();
+          //informacionHabitacion();
     }//GEN-LAST:event_btnNuevaReservaActionPerformed
 
     private void tblHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHabitacionMouseClicked
         // TODO add your handling code here:
          indiceHabitacionSeleccionada=tblHabitacion.getSelectedRow();
-        //recypperar el cliente de la lista en el indice selccionado
-        Habitacion HabitacionSeleccionada=PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
-       
+         Habitacion HabitacionSeleccionada=PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
+         if(HabitacionSeleccionada.getTipoDeHabitacion().equals("Triple")){
+          txtResult.append(HabitacionSeleccionada.habitacionTriple()+ "\n");    
+         }else {
+             JOptionPane.showMessageDialog(null, "Naanis");
+         }
+         
+        //recypperar el cliente de la lista en el indice selccionado 
+/*if(HabitacionSeleccionada==PaginaPrincipal.listaDeHabitacionesMatrimoniales.
+        get(indiceHabitacionSeleccionada)){       
+        txtResult.append(c.habitacionDoble()+ "\n"); 
+    }
+ if(HabitacionSeleccionada==PaginaPrincipal.listaDeHabitacionesTriples.
+            get(indiceHabitacionSeleccionada)){
+        txtResult.append(c.habitacionTriple()+ "\n"); */
+        
+    //}
+  
     }//GEN-LAST:event_tblHabitacionMouseClicked
     private void limpiar () {
         cmbClientes.setSelectedIndex(0);
@@ -312,6 +332,8 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                 indiceHabitacionSeleccionada=-1;
         }
     }
+     
+    
         private void limpiarTablaDeClientes(){
         for(int i=0;i<tblHabitacion.getRowCount();i++){
             dtmModelo.removeRow(i);
@@ -322,21 +344,24 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
         for(Habitacion c:PaginaPrincipal.listaDeHabitaciones)
             agregarClienteALaTabla (c);
     }
+        
         private void agregarClienteALaTabla(Habitacion h){
         dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
         h.getCapacidad(),h.getPrecio()}); 
     }
-    private void informacionHabitacion(){
+   /* private void informacionHabitacion(){
     if (indiceHabitacionSeleccionada!=-1){
-        PaginaPrincipal.listaDeHabitacionesMatrimoniales.remove(indiceHabitacionSeleccionada);
-        txtDescripccion.setText(c.habitacionDoble());
+        
+         //txtares.append(c.toString()+ "\n");
+         txtResult.append(c.habitacionDoble());
+        //txtDescripcion.setText(c.habitacionDoble());
     }
-    }
+    }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgFormaDePago;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnNuevaReserva;
     private javax.swing.JComboBox<String> cmbClientes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -352,6 +377,6 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
     private javax.swing.JRadioButton rbtTarjetaDeCredito;
     private javax.swing.JRadioButton rbtTransferencia;
     private javax.swing.JTable tblHabitacion;
-    private javax.swing.JTextArea txtDescripccion;
+    private javax.swing.JTextArea txtResult;
     // End of variables declaration//GEN-END:variables
 }

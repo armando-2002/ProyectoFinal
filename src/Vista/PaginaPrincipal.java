@@ -21,11 +21,11 @@ import javax.swing.JPanel;
 public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
     PnlPrincipal pnlPrincipal;    
+    //PnlHabitacion21 pnlHabitacion21;
     PnlHabitacion2 pnlHabitacion2;
     PnlServicios pnlServicios;
     public static ArrayList<Habitacion> listaDeHabitaciones;
     public static ArrayList<Cliente> listaDeClientes;
-    public static ArrayList<Habitacion> listaDeHabitacionesMatrimoniales;
     /**
      * Creates new form PaginaPrincipal
      */
@@ -35,19 +35,16 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         pnlPrincipal=new PnlPrincipal();
         agregarPanel(pnlPrincipal);
         fecha();
+      
         listaDeClientes = new ArrayList<>();
         listaDeHabitaciones = new ArrayList<>();
-        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+        listaDeHabitaciones.add(new Habitacion("Triple",2,25,2,80));
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,20,2,80));
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,28,2,80));
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,30,2,80));
         
 
-        listaDeHabitacionesMatrimoniales = new ArrayList<>();
-        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,25,2,80));
-        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,20,2,80));
-        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,28,2,80));
-        listaDeHabitacionesMatrimoniales.add(new Habitacion("Matrimonial",2,30,2,80));
+       
 
     }
 
@@ -315,7 +312,9 @@ private void fecha(){
         // TODO add your handling code here:
          /*pnlHabitacion=new PnlHabitacion();
         agregarPanel(pnlHabitacion);*/
-         pnlHabitacion2= new PnlHabitacion2();
+        /* pnlHabitacion21= new PnlHabitacion21();
+         agregarPanel(pnlHabitacion21);*/
+        pnlHabitacion2= new PnlHabitacion2();
          agregarPanel(pnlHabitacion2);
     }//GEN-LAST:event_btnReservaActionPerformed
 
