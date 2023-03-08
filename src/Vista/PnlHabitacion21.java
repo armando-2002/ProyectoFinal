@@ -310,8 +310,7 @@ indiceHabitacionSeleccionada=-1;
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-       // String fechaIngreso=jdcFechaEntrada.getDateFormatString();
-       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", new Locale("es"));
+       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", new Locale("es"));       
         String fechaIngreso = sdf.format(jdcFechaEntrada.getDate());
         String fechaSalida = sdf.format(jdcFechaSalida.getDate());
         
@@ -320,11 +319,9 @@ indiceHabitacionSeleccionada=-1;
                 r.setFormaDePago("Transferencia");
         if(rbtTarjetaDeCredito.isSelected())
                 r.setFormaDePago("Tarjeta de credito");
-       txtDescripccion.append("Fecha ingreso: "+r.getFechaIngreso()+"Fecha salida: "+
-                        r.getFechaSalida()+"Forma de pago: "+r.getFormaDePago());
-       //txtDescripccion.setText(r.toString());
+        txtDescripccion.append("Fecha ingreso: " + r.getFechaIngreso() + "\nFecha salida: " +
+         r.getFechaSalida() + "\nForma de pago: " + r.getFormaDePago() + "\n");
        
-        /*Asignar el valor a la variable raza*/
        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
