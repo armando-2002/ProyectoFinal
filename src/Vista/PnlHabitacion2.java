@@ -331,7 +331,7 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
     private void informacionHabitacion(){
     if (indiceHabitacionSeleccionada!=-1){
         PaginaPrincipal.listaDeHabitacionesMatrimoniales.remove(indiceHabitacionSeleccionada);
-        c.habitacionesDisponibles();
+        txtDescripccion.setText(c.habitacionDoble());
     }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
