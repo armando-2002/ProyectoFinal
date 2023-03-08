@@ -322,7 +322,7 @@ indiceHabitacionSeleccionada=-1;
                 r.setFormaDePago("Tarjeta de credito");
        txtDescripccion.append("Fecha ingreso: "+r.getFechaIngreso()+"Fecha salida: "+
                         r.getFechaSalida()+"Forma de pago: "+r.getFormaDePago());
-       txtDescripccion.setText(r.toString());
+       //txtDescripccion.setText(r.toString());
        
         /*Asignar el valor a la variable raza*/
        
