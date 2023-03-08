@@ -33,6 +33,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     public PaginaPrincipal() {
         initComponents();
+        setLocationRelativeTo(this);
         pnlPrincipal=new PnlPrincipal();
         agregarPanel(pnlPrincipal);
         fecha();
