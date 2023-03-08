@@ -331,7 +331,7 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
         Date fecha1 = jdcFechaEntrada.getDate();
         Date fecha2 = jdcFechaSalida.getDate();
         long diffMillis = fecha2.getTime() - fecha1.getTime();
-        int diasTranscurridos = (int) (diffMillis / 86400000);
+         diasTranscurridos = (int) (diffMillis / 86400000);
         
         r=new Reserva(fechaIngreso,fechaSalida);
         if(rbtTransferencia.isSelected())
@@ -384,10 +384,38 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
     }//GEN-LAST:event_tblHabitacion21MouseClicked
 
     private void btnCalcuclarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcuclarReservaActionPerformed
-        // TODO add your handling code here:
-        this.diasTranscurridos = diasTranscurridos;
-        
-        
+ 
+    String tipoHabitacion = ""; // Obtener el tipo de habitación seleccionado
+    Habitacion habitacionSeleccionada = PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
+    tipoHabitacion = habitacionSeleccionada.getTipoDeHabitacion();
+    int diasTranscurridos = this.diasTranscurridos; // Obtener los días transcurridos
+    
+    double precioPorNoche = 0.0;
+    switch (tipoHabitacion) {
+        case "Matrimonial":
+            precioPorNoche = 80.0; 
+            break;
+        case "Triple":
+            precioPorNoche = 115.0; 
+            break;
+        case "Simple":
+            precioPorNoche = 50.0; 
+            break;
+        case "Cuadruple":
+            precioPorNoche = 125.0; 
+            break;
+        case "ConnectingRooms":
+            precioPorNoche = 150.0; 
+            break;
+        case "Suite":
+            precioPorNoche = 180.0; 
+            break;
+        default:
+            break;
+    }
+    
+    double precioTotal = precioPorNoche * diasTranscurridos;
+    txtDescripccion.append("\nPrecio total de la reserva: " + precioTotal);
     }//GEN-LAST:event_btnCalcuclarReservaActionPerformed
 private void limpiar () {
     cmbClientes.setSelectedIndex(0);
