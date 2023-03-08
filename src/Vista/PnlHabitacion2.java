@@ -310,10 +310,8 @@ listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
                 limpiarTablaDeClientes();
                 agregarListaCompletaALaTabla();
                 indiceHabitacionSeleccionada=-1;
-            }
-
+        }
     }
-
         private void limpiarTablaDeClientes(){
         for(int i=0;i<tblHabitacion.getRowCount();i++){
             dtmModelo.removeRow(i);
