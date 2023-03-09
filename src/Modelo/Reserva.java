@@ -14,13 +14,14 @@ public class Reserva {
     private String formaDePago;
     private double totalAPagar;
     private double valorPorHabitacion;
+    
     Habitacion habitacion;
     public Reserva() {
     }
 
-    public Reserva(String fechaInicio, String fechaFin) {
-        this.fechaIngreso = fechaInicio;
-        this.fechaSalida = fechaFin;
+    public Reserva(String fechaIngreso, String fechaSalida) {
+        this.fechaIngreso = fechaIngreso;
+        this.fechaSalida = fechaSalida;
     }
 
     public String getFechaIngreso() {
@@ -45,14 +46,6 @@ public class Reserva {
 
     public void setValorPorHabitacion(double valorPorHabitacion) {
         this.valorPorHabitacion = valorPorHabitacion;
-    }
-
-    public String getFechaFin() {
-        return fechaSalida;
-    }
-
-    public void setFechaFin(String fechaFin) {
-        this.fechaSalida = fechaFin;
     }
 
     public String getFormaDePago() {

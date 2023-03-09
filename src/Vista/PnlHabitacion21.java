@@ -386,7 +386,7 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
     }//GEN-LAST:event_tblHabitacion21MouseClicked
 
     private void btnCalcuclarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcuclarReservaActionPerformed
- 
+
     String tipoHabitacion = ""; // Obtener el tipo de habitación seleccionado
     Habitacion habitacionSeleccionada = PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
     tipoHabitacion = habitacionSeleccionada.getTipoDeHabitacion();
