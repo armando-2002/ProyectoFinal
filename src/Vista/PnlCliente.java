@@ -124,13 +124,13 @@ public class PnlCliente extends javax.swing.JPanel {
             }
         });
 
-        lblError2.setForeground(new java.awt.Color(0, 102, 102));
+        lblError2.setForeground(new java.awt.Color(255, 0, 0));
         lblError2.setText("jLabel6");
 
-        lblError3.setForeground(new java.awt.Color(0, 102, 102));
+        lblError3.setForeground(new java.awt.Color(255, 0, 0));
         lblError3.setText("jLabel7");
 
-        lblError4.setForeground(new java.awt.Color(0, 102, 102));
+        lblError4.setForeground(new java.awt.Color(255, 0, 0));
         lblError4.setText("jLabel8");
 
         btnGuardar.setText("Guardar");
@@ -157,7 +157,7 @@ public class PnlCliente extends javax.swing.JPanel {
             }
         });
 
-        lblError1.setForeground(new java.awt.Color(0, 102, 102));
+        lblError1.setForeground(new java.awt.Color(255, 0, 0));
         lblError1.setText("jLabel1");
 
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
@@ -330,6 +330,7 @@ public class PnlCliente extends javax.swing.JPanel {
                     indiceUltimoElemento));
             JOptionPane.showMessageDialog(pnlFondo, "Usuario guardado"
                 + " con éxito");
+            JOptionPane.showMessageDialog(pnlFondo, "Vaya al apartado reserva para completar el proceso");
        vaciar();
         } else if (!Validador.esNombreValido(txtNombre.getText())) {
             JOptionPane.showMessageDialog(pnlFondo, 
