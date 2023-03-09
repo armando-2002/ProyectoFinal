@@ -115,8 +115,10 @@ DefaultTableModel dtmModelo;
         jLabel4.setText("Forma de pago");
         jLabel4.setToolTipText("");
 
+        btgFormaDePago.add(rbtTransferencia);
         rbtTransferencia.setText("Transferencia");
 
+        btgFormaDePago.add(rbtTarjeta);
         rbtTarjeta.setText("Tarjeta de credito");
 
         jdcFechaIngreso.setDateFormatString("dd/MM/yyyy");
@@ -250,13 +252,10 @@ DefaultTableModel dtmModelo;
                 .addGroup(PnlFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreFactura3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PnlFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PnlFondo3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblFechaIngreso3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PnlFondo3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblFechaIngresoFactura3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblFechaIngreso3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFechaIngresoFactura3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PnlFondo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFechaSalidaFactura3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -391,9 +390,7 @@ DefaultTableModel dtmModelo;
                                 .addComponent(rbtTarjeta)
                                 .addGap(0, 0, 0)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -457,11 +454,7 @@ DefaultTableModel dtmModelo;
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
-        // TODO add your handling code here:
-        /*pnlFactura=new PnlFacturall();
-        agregarPanel(pnlFactura);
 
-        seleccionarHabitacion();*/
         PnlFondo3.setVisible(true);
 factura();
     }//GEN-LAST:event_btnFacturaActionPerformed
@@ -612,11 +605,11 @@ public void factura(){
         lblFormaPagoFactura3.setVisible(true);
         if(rbtTarjeta.isSelected())
                 r.setFormaDePago("Tarjeta de credito");
-        lblFormaPagoFactura3.setVisible(true);
+       
         lblIVAFactura3.setText("0,12");
-        lblIVAFactura3.setVisible(true);
+       
         lblTotalFactura3.setText(""+calcularPrecioTotal());
-        lblTotalFactura3.setVisible(true);
+
         lblSubTotal.setText(""+calcuclarSubTotal());
        
 }

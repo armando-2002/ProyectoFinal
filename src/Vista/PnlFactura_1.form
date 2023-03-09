@@ -142,10 +142,7 @@
                                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                       <Component id="jLabel9" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jScrollPane2" min="-2" pref="221" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jScrollPane2" alignment="0" min="-2" pref="221" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane5" min="-2" pref="179" max="-2" attributes="0"/>
@@ -187,11 +184,17 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtTransferencia">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btgFormaDePago"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Transferencia"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtTarjeta">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btgFormaDePago"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Tarjeta de credito"/>
               </Properties>
             </Component>
@@ -356,15 +359,10 @@
                               <Component id="lblNombreFactura3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="lblNombre3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblFechaIngreso3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblFechaIngresoFactura3" min="-2" pref="34" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblFechaIngreso3" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="lblFechaIngresoFactura3" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
