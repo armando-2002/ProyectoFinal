@@ -62,8 +62,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         listaDeHabitaciones.add(new Habitacion("ConnectingRooms",6,34,3,125));
         
         listaDeHabitaciones.add(new Habitacion("Suite",7,35,3,135));
-         listaDeHabitaciones.add(new Habitacion("Suite",7,36,2,135));
-         listaDeHabitaciones.add(new Habitacion("Suite",7,38,3,135));
+        listaDeHabitaciones.add(new Habitacion("Suite",7,36,2,135));
+        listaDeHabitaciones.add(new Habitacion("Suite",7,38,3,135));
         
 
        
