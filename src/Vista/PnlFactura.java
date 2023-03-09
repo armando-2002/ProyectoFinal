@@ -36,7 +36,7 @@ Reserva h;
             lblNombre.setText(r.getNombre());
         }
         lblNombre.setVisible(true);
-       lblFechaIngresoFactura.setText(h.getFechaIngreso());
+        lblFechaIngresoFactura.setText(h.getFechaIngreso());
         
     }
 

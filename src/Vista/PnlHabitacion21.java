@@ -162,7 +162,7 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
 
         txtDescripccion.setColumns(20);
         txtDescripccion.setRows(5);
-        txtDescripccion.setBorder(javax.swing.BorderFactory.createTitledBorder("Descripcción de habitación"));
+        txtDescripccion.setBorder(javax.swing.BorderFactory.createTitledBorder("Descripción de habitación"));
         jScrollPane2.setViewportView(txtDescripccion);
 
         btnGuardar.setText("Guardar");
@@ -327,14 +327,13 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", new Locale("es"));       
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", new Locale("es"));       
         String fechaIngreso = sdf.format(jdcFechaEntrada.getDate());
         String fechaSalida = sdf.format(jdcFechaSalida.getDate());
         Date fecha1 = jdcFechaEntrada.getDate();
         Date fecha2 = jdcFechaSalida.getDate();
         long diffMillis = fecha2.getTime() - fecha1.getTime();
          diasTranscurridos = (int) (diffMillis / 86400000);
-        
         r=new Reserva(fechaIngreso,fechaSalida);
         if(rbtTransferencia.isSelected())
                 r.setFormaDePago("Transferencia");
@@ -350,6 +349,7 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
         // TODO add your handling code here:
         //limpiar ();
         seleccionarHabitacion();
+        limpiar();
     }//GEN-LAST:event_btnNuevaReservaActionPerformed
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
@@ -415,53 +415,53 @@ public class PnlHabitacion21 extends javax.swing.JPanel {
         default:
             break;
     }
-    
     double precioTotal = precioPorNoche * diasTranscurridos;
     txtDescripccion.append("\nPrecio total de la reserva: " + precioTotal+ "$");
     }//GEN-LAST:event_btnCalcuclarReservaActionPerformed
-private void limpiar () {
-    cmbClientes.setSelectedIndex(0);
-    jdcFechaEntrada.setCalendar(null);
-    jdcFechaSalida.setCalendar(null);
-    btgFormaDePago.clearSelection();
-    }
-private void borrarAreaDeTexto(){
+    private void limpiar () {
+        cmbClientes.setSelectedIndex(0);
+        jdcFechaEntrada.setCalendar(null);
+        jdcFechaSalida.setCalendar(null);
+        btgFormaDePago.clearSelection();
         txtDescripccion.setText("");
-    }
-private void seleccionarHabitacion(){
-    if (indiceHabitacionSeleccionada!=-1){
-            PaginaPrincipal.listaDeHabitaciones.remove(indiceHabitacionSeleccionada);
-            limpiarTablaDeClientes();
-            agregarListaCompletaALaTabla();
-            indiceHabitacionSeleccionada=-1;
         }
-    
-}
+    private void borrarAreaDeTexto(){
+            txtDescripccion.setText("");
+        }
+    private void seleccionarHabitacion(){
+        if (indiceHabitacionSeleccionada!=-1){
+                PaginaPrincipal.listaDeHabitaciones.remove(indiceHabitacionSeleccionada);
+                limpiarTablaDeClientes();
+                agregarListaCompletaALaTabla();
+                indiceHabitacionSeleccionada=-1;
+            }
 
-    private void limpiarTablaDeClientes(){
-    for(int i=0;i<tblHabitacion21.getRowCount();i++){
-        dtmModelo.removeRow(i);
-        i--;//decremento asi o asi; i-=1
-    }   
-}
-    private void agregarListaCompletaALaTabla(){
-    for(Habitacion c:PaginaPrincipal.listaDeHabitaciones)
-        agregarHabitacionesALaTabla (c);
-}
-    private void agregarHabitacionesALaTabla(Habitacion h){
-    dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
-    h.getCapacidad(),h.getPrecio()}); 
-}
-    
-    private void agregarPanel(JPanel pnl){
-     pnl.setSize(1000,620);
-        pnl.setLocation(0,0);
-        fondo.removeAll();
-        fondo.add(pnl);
-       fondo.revalidate();
-        fondo.repaint();    
- 
-}
+    }
+
+        private void limpiarTablaDeClientes(){
+        for(int i=0;i<tblHabitacion21.getRowCount();i++){
+            dtmModelo.removeRow(i);
+            i--;//decremento asi o asi; i-=1
+        }   
+    }
+        private void agregarListaCompletaALaTabla(){
+        for(Habitacion c:PaginaPrincipal.listaDeHabitaciones)
+            agregarHabitacionesALaTabla (c);
+    }
+        private void agregarHabitacionesALaTabla(Habitacion h){
+        dtmModelo.addRow(new Object[]{h.getTipoDeHabitacion(),h.getPiso(),h.getNumeroDeHabitacion(),
+        h.getCapacidad(),h.getPrecio()}); 
+    }
+
+        private void agregarPanel(JPanel pnl){
+         pnl.setSize(1000,620);
+            pnl.setLocation(0,0);
+            fondo.removeAll();
+            fondo.add(pnl);
+           fondo.revalidate();
+            fondo.repaint();    
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgFormaDePago;
     private javax.swing.JButton btnCalcuclarReserva;

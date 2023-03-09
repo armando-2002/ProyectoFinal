@@ -14,7 +14,7 @@ public class Reserva {
     private String formaDePago;
     private double totalAPagar;
     private double valorPorHabitacion;
-Habitacion habitacion;
+    Habitacion habitacion;
     public Reserva() {
     }
 
@@ -45,15 +45,6 @@ Habitacion habitacion;
 
     public void setValorPorHabitacion(double valorPorHabitacion) {
         this.valorPorHabitacion = valorPorHabitacion;
-    }
-    
-
-    public String getFechaInicio() {
-        return fechaIngreso;
-    }
-
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaIngreso = fechaInicio;
     }
 
     public String getFechaFin() {
