@@ -617,12 +617,10 @@ public void factura(){
         lblIVAFactura3.setVisible(true);
         lblTotalFactura3.setText(""+calcularPrecioTotal());
         lblTotalFactura3.setVisible(true);
-        
-        
-    
+        lblSubTotal.setText(""+calcuclarSubTotal());
+       
 }
-public double calcularPrecioTotal(){
-    double iva=0.12;
+public double calcuclarSubTotal(){
     String tipoHabitacion = ""; // Obtener el tipo de habitación seleccionado
         Habitacion habitacionSeleccionada = PaginaPrincipal.listaDeHabitaciones.get(indiceHabitacionSeleccionada);
         tipoHabitacion = habitacionSeleccionada.getTipoDeHabitacion();
@@ -651,9 +649,13 @@ public double calcularPrecioTotal(){
             default:
             break;
         }
-
-        double Total = precioPorNoche * diasTranscurridos +((precioPorNoche * diasTranscurridos)*iva);
+        double Total =precioPorNoche * diasTranscurridos;
     return Total;
+}
+public double calcularPrecioTotal(){
+    double iva=0.12;
+ double total = calcuclarSubTotal() +(calcuclarSubTotal()*iva);
+    return total;
     
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
