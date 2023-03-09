@@ -69,7 +69,7 @@ public class PnlCliente extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(750, 430));
 
-        pnlFondo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFondo.setBackground(new java.awt.Color(204, 255, 255));
         pnlFondo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblNombre.setText("Nombre");

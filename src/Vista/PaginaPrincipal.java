@@ -22,9 +22,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     PnlCliente pnlCliente;
     PnlServicios2 pnlServicios2;
     PnlPrincipal pnlPrincipal;    
-    //PnlHabitacion21 pnlHabitacion21;
-    PnlHabitacion21 pnlHabitacion21;
-    PnlServicios pnlServicios;
+    PnlFactura_1 pnlFactura_1;
+    PnlServicios2 pnlServicios;
     public static ArrayList<Habitacion> listaDeHabitaciones;
     public static ArrayList<Cliente> listaDeClientes;
     /**
@@ -87,6 +86,7 @@ private void fecha(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         pnlInicio = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -101,6 +101,9 @@ private void fecha(){
         lblMensaje = new javax.swing.JLabel();
         pnlFondo = new javax.swing.JPanel();
 
+        jPopupMenu1.setBackground(new java.awt.Color(204, 204, 255));
+        jPopupMenu1.setForeground(new java.awt.Color(204, 204, 255));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ReserHotel");
 
@@ -110,9 +113,9 @@ private void fecha(){
 
         pnlMenu.setBackground(new java.awt.Color(13, 71, 161));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Historic", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("RESERHOTEL");
+        jLabel1.setText("RESERVHOTEL");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -166,7 +169,7 @@ private void fecha(){
 
         btnPrincipal.setBackground(new java.awt.Color(21, 101, 192));
         btnPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/home-outline.png"))); // NOI18N
-        btnPrincipal.setText("Pagina principal");
+        btnPrincipal.setText("Página Principal");
         btnPrincipal.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         btnPrincipal.setBorderPainted(false);
         btnPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -244,11 +247,11 @@ private void fecha(){
         );
 
         lblMensaje.setBackground(new java.awt.Color(204, 204, 204));
-        lblMensaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblMensaje.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblMensaje.setForeground(new java.awt.Color(0, 153, 153));
         lblMensaje.setText("BIENVENIDO");
 
-        pnlFondo.setBackground(new java.awt.Color(204, 255, 204));
+        pnlFondo.setBackground(new java.awt.Color(204, 204, 255));
         pnlFondo.setPreferredSize(new java.awt.Dimension(750, 430));
 
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
@@ -327,8 +330,8 @@ private void fecha(){
         // TODO add your handling code here:
          /*pnlHabitacion21= new PnlHabitacion21();
          agregarPanel(pnlHabitacion21);*/
-        pnlHabitacion21= new PnlHabitacion21();
-        agregarPanel(pnlHabitacion21);
+        pnlFactura_1= new PnlFactura_1();
+        agregarPanel(pnlFactura_1);
     }//GEN-LAST:event_btnReservaActionPerformed
 
     private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
@@ -388,6 +391,7 @@ private void agregarPanel(JPanel pnl){
     private javax.swing.JButton btnServicios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblMensaje;
