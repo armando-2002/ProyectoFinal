@@ -38,23 +38,19 @@ public class PnlPrincipal extends javax.swing.JPanel {
         lbl1 = new javax.swing.JLabel();
 
         lbl1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lbl1.setText("Bienvenidos a nuestra app");
+        lbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/ImagenHotel.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+            .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 763, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(415, Short.MAX_VALUE))
+                .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

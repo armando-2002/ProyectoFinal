@@ -40,28 +40,30 @@ public class PaginaPrincipal extends javax.swing.JFrame {
       
         listaDeClientes = new ArrayList<>();
         listaDeHabitaciones = new ArrayList<>();
-        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,25,2,80));
+        
+        listaDeHabitaciones.add(new Habitacion("Simple",2,15,1,50));
+        listaDeHabitaciones.add(new Habitacion("Simple",2,17,1,50));
+        listaDeHabitaciones.add(new Habitacion("Simple",2,18,1,50));
+        
         listaDeHabitaciones.add(new Habitacion("Matrimonial",2,20,2,80));
-        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,28,2,80));
-        listaDeHabitaciones.add(new Habitacion("Simple",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("Simple",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("Simple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,22,2,80));
+        listaDeHabitaciones.add(new Habitacion("Matrimonial",2,23,2,80));
         
-        listaDeHabitaciones.add(new Habitacion("Triple",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("Triple",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("Triple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Triple",2,24,3,115));
+        listaDeHabitaciones.add(new Habitacion("Triple",2,25,3,115));
+        listaDeHabitaciones.add(new Habitacion("Triple",2,26,3,115));
         
-        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,27,4,120));
+        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,29,4,120));
+        listaDeHabitaciones.add(new Habitacion("Cuadruple",2,30,4,120));
         
-        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,30,2,80));
-        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,31,2,125));
+        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,33,3,125));
+        listaDeHabitaciones.add(new Habitacion("ConnectingRooms",2,34,3,125));
         
-        listaDeHabitaciones.add(new Habitacion("Suite",2,30,2,80));
-         listaDeHabitaciones.add(new Habitacion("Suite",2,30,2,80));
-         listaDeHabitaciones.add(new Habitacion("Suite",2,30,2,80));
+        listaDeHabitaciones.add(new Habitacion("Suite",2,35,3,135));
+         listaDeHabitaciones.add(new Habitacion("Suite",2,36,2,135));
+         listaDeHabitaciones.add(new Habitacion("Suite",2,38,3,135));
         
 
        
