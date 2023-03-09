@@ -25,6 +25,13 @@ Reserva h;
      */
     public PnlFactura() {
         initComponents();
+        h=new Reserva();
+        for(Cliente r: PaginaPrincipal.listaDeClientes){
+            lblNombre.setText(r.getNombre());
+        }
+        lblNombre.setVisible(true);
+       lblFechaIngresoFactura.setText(h.getFechaIngreso());
+       lblFechaIngresoFactura.setVisible(true);
         for(Cliente r: PaginaPrincipal.listaDeClientes){
             lblNombre.setText(r.getNombre());
         }
